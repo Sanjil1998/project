@@ -1,0 +1,17 @@
+.text-color-custom{
+    color: #E36513 !important;
+}
+
+.promo-block{
+    width: 100% !important;
+    height: auto !important;
+    background: url(img/1920x1080/01.jpg) center center cover no-repeat fixed !important;
+    background-size: cover !important;
+    background-position: center center !important;
+
+    
+}
+/*Responsive Css*/
+@media screen {
+    
+}
