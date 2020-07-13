@@ -42,7 +42,7 @@
                                 <span class="icon"><i class="fa fa-eye"></i></span>
                                 <p>
                                     <span class="number">274,678</span>
-                                    <span class="title">Visits</span>
+                                    <span class="title">Published</span>
                                 </p>
                             </div>
                         </div>
@@ -50,6 +50,35 @@
                 </div>
             </div>
             <!-- END OVERVIEW -->
+
+            <!-- BLOG SECTION -->
+
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+
+                        {!! Form::open(['class' => '', 'enctype' => 'multipart/form-data', 'action' => 'BlogController@store', 'method' => 'POST']) !!}
+                        @csrf
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" placeholder="title" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::textarea('body', '', ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+                        </div>
+
+                        <div class="">
+                            <button type="submit" class="btn btn-primary pull-right p-5">Save</button>
+                        </div>
+
+                        {!! Form::close() !!}
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- END BLOG SECTION -->
 
         </div>
     </div>
@@ -59,6 +88,15 @@
 
 @endsection
 
+
+
 @section('footer')
 @include('layouts.admin.footer')
+@endsection
+
+@section('scripts')
+<script src="{{URL::to('/')}}/node_modules/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
 @endsection

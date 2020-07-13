@@ -76,6 +76,72 @@
 
             <!-- about display section ends -->
 
+            <!-- skillset form -->
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Skillsets</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form action="{{ route('admin.profile.about.store_skills') }}" method="POST" enctype="multipart/form-data">
+                             @csrf
+                            <div class="form-group">
+                                <label for="skill">Type of skill</label>
+                                <input type="text" name="skill_name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="skill_level">Skill Level in percentage</label>
+                                <input type="number" name="skill_level" class="form-control" placeholder="0-100">
+                            </div>
+                            <input type="submit" value="Save" class="btn btn-primary pull-right p-5">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end skillset form -->
+
+            <!-- display skillsets -->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Skillsets</h3>
+                </div>
+                <div class="panel-body">
+
+                    @if(count($skill) > 0 )
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>About Content</th>
+                                <th>Created At</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        @foreach($skill as $skills)
+                        <tbody>
+                            <tr>
+                                <td><p>{{$skills->skill_name}}</p></td>
+                                <td>{{$skills->skill_level}}</td>
+                                <td colspan="2">
+                                    <a href="{{route('admin.profile.about.edit_skills', [$skills->id])}}" class="btn btn-warning">Edit</a>
+                                    {!! Form::open(['action' => ['ProfileController@delete_skills', $skills->id], 'method'=>'POST', 'class' => 'pl-0 pr-0' ]) !!}
+                                    {{Form::hidden('_method', 'DELETE')}}
+                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        </tbody>
+                        @endforeach
+                    </table>
+                    @else
+                    <p>Your skillsets section is null</p>
+                    @endif
+
+                </div>
+            </div>
+            <!-- end display skillsets -->
+
         </div>
     </div>
     <!-- END MAIN CONTENT -->

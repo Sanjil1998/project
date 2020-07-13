@@ -26,23 +26,29 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/users','AdminController@users')->name('admin.users');
 
-    Route::get('/profile','ProfileController@index')->name('admin.profile.index');
 
-    Route::get('/profile/files','ProfileController@file')->name('admin.profile.files');
-
-    Route::post('/profile/files/save','FileController@save')->name('admin.profile.files.save');
-
-    Route::get('/profile/files/download','FileController@download')->name('admin.profile.files.download');
-
-    Route::DELETE('/profile/files/{id}/destroy','FileController@destroy')->name('admin.profile.files.destroy');
-
-    Route::get('/profile/files/cv','FileController@cv')->name('admin.profile.files.cv');
-
-    Route::get('/blogs','BlogController@index')->name('admin.blogs.index');
-
-    Route::get('/blogs/create','BlogController@create')->name('admin.blogs.create');
-
+    // Profile Routes
     Route::prefix('profile')->group(function(){
+
+        Route::get('/','ProfileController@index')->name('admin.profile.index');
+
+        Route::get('/edit_profile','ProfileController@edit_profile')->name('admin.profile.edit_profile');
+
+        Route::post('/edit_profile/save','ProfileController@store_profile')->name('admin.profile.store_profile');
+
+        Route::get('/{id}/edit','ProfileController@update_profile')->name('admin.profile.update_profile');
+
+        Route::put('/{id}/update','ProfileController@store_update_profile')->name('admin.profile.store_update_profile');
+
+        Route::get('/files','ProfileController@file')->name('admin.profile.files');
+
+        Route::post('/files/save','FileController@save')->name('admin.profile.files.save');
+
+        Route::get('/files/download','FileController@download')->name('admin.profile.files.download');
+
+        Route::DELETE('/files/{id}/destroy','FileController@destroy')->name('admin.profile.files.destroy');
+
+        Route::get('/files/cv','FileController@cv')->name('admin.profile.files.cv');
 
         Route::get('/about', 'ProfileController@about')->name('admin.profile.about');
 
@@ -54,7 +60,29 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::delete('/about/{id}/delete', 'ProfileController@delete_about')->name('admin.profile.about.delete');
 
+        Route::post('/about/store_skills', 'ProfileController@store_skills')->name('admin.profile.about.store_skills');
+
+        Route::get('/about/{id}/edit_skills', 'ProfileController@edit_skills')->name('admin.profile.about.edit_skills');
+
+        Route::put('/about/{id}/update_skills', 'ProfileController@update_skills')->name('admin.profile.about.update_skills');
+
+        Route::delete('/about/{id}/delete_skills', 'ProfileController@delete_skills')->name('admin.profile.about.delete_skills');
+
     });
+
+    // Blogs Routes
+    Route::prefix('blogs')->group(function(){
+
+        Route::get('/','BlogController@index')->name('admin.blogs.index');
+
+        Route::get('/create','BlogController@create')->name('admin.blogs.create');
+
+        Route::get('/store','BlogController@store')->name('admin.blogs.store');
+
+
+    });
+
+
 });
 
 Route::get('/blogs', 'HomeController@blogs')->name('home.blogs');

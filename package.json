@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^19.0.2",
+        "ckeditor": "^4.12.1",
         "dropzone": "^5.7.1"
     }
 }

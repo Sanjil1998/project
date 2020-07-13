@@ -20,48 +20,52 @@
                         <div class="profile-header">
                             <div class="overlay"></div>
                             <div class="profile-main">
-                                <img src="assets/img/user-medium.png" class="img-circle" alt="Avatar">
-                                <h3 class="name">Samuel Gold</h3>
-                                <span class="online-status status-available">Available</span>
-                            </div>
-                            <div class="profile-stat">
-                                <div class="row">
-                                    <div class="col-md-4 stat-item">
-                                        45 <span>Projects</span>
-                                    </div>
-                                    <div class="col-md-4 stat-item">
-                                        15 <span>Awards</span>
-                                    </div>
-                                    <div class="col-md-4 stat-item">
-                                        2174 <span>Points</span>
-                                    </div>
-                                </div>
+                                @foreach($profile as $profiles)
+                                <img src="{{URL::to('/')}}/storage/app/public/images/{{$profiles->image}}" class="img-circle" alt="Avatar" width="150" height="150">
+                                @endforeach
+                                <h3 class="name">{{Auth::user()->name}}</h3>
                             </div>
                         </div>
                         <!-- END PROFILE HEADER -->
 
                         <!-- PROFILE DETAIL -->
                         <div class="profile-detail">
+                            @foreach($profile as $profiles)
                             <div class="profile-info">
                                 <h4 class="heading">Basic Info</h4>
                                 <ul class="list-unstyled list-justify">
-                                    <li>Name <span>Full name</span></li>
-                                    <li>Birth Date <span>24 Aug, 2016</span></li>
-                                    <li>Mobile <span>(124) 823409234</span></li>
-                                    <li>Email <span>samuel@mydomain.com</span></li>
-                                    <li>Address <span><a href="https://www.themeineed.com/">www.themeineed.com</a></span></li>
+
+                                    <li>Name <span class="text-capitalize">{{$profiles->name}}</span></li>
+                                    <li>Birth Date <span>{{$profiles->dob}}</span></li>
+                                    <li>Mobile Number<span>{{$profiles->phone}}</span></li>
+                                    <li>Login Email <span>{{Auth::user()->email}}</span></li>
+                                    <li>Address <span>{{$profiles->address}}</span></li>
+                                    <li>Mail Address <span><a href="mailto:{{$profiles->gmail}}">{{$profiles->gmail}}</a></span></li>
+
                                 </ul>
                             </div>
                             <div class="profile-info">
                                 <h4 class="heading">Social</h4>
                                 <ul class="list-inline social-icons">
-                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="google-plus-bg"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="github-bg"><i class="fa fa-github"></i></a></li>
+                                    <li><a href="{{$profiles->facebook}}" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="{{$profiles->twitter}}" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="{{$profiles->instagram}}" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="{{$profiles->linkedin}}" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="text-center"><a href="#" class="btn btn-primary">Edit Profile</a></div>
+
+                            <div class="text-center">
+                                <a href="{{route('admin.profile.update_profile', [$profiles->id])}}" class="btn btn-warning">Edit Profile</a>
+                            </div>
+                            @endforeach
+
+                            @if(count($profile) > 1)
+                            <div class="text-center">
+                                <a href="{{route('admin.profile.edit_profile')}}" class="btn btn-primary">Add Profile</a>
+                            </div>
+                            @endif
+
+
                         </div>
                         <!-- END PROFILE DETAIL -->
                     </div>
@@ -69,47 +73,6 @@
 
                     <!-- RIGHT COLUMN -->
                     <div class="profile-right">
-                        <h4 class="heading">Samuel's Awards</h4>
-
-                        <!-- AWARDS -->
-                        <div class="awards">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-sun award-icon"></span>
-                                        </div>
-                                        <span>Most Bright Idea</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-clock award-icon"></span>
-                                        </div>
-                                        <span>Most On-Time</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-magic-wand award-icon"></span>
-                                        </div>
-                                        <span>Problem Solver</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-heart award-icon"></span>
-                                        </div>
-                                        <span>Most Loved</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center"><a href="#" class="btn btn-default">See all awards</a></div>
-                        </div>
-                        <!-- END AWARDS -->
 
                         <!-- TABBED CONTENT -->
                         <div class="custom-tabs-line tabs-line-bottom left-aligned">

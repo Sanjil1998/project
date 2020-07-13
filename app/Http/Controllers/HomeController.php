@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 Use App\User;
 Use App\About;
 Use App\Document;
+Use App\Skills;
+Use App\Profile;
 
 class HomeController extends Controller
 {
@@ -24,8 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $about = About::all();
+        $skill = Skills::all();
+        $profile = Profile::all();
+        $user = User::all();
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
-        return view('index')->with('document', $document)->with('about', $about);
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile);
     }
     public function blogs()
     {

@@ -71,7 +71,7 @@
                             <form action="{{route('admin.profile.files.save')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="guide">Before uploading a new cv, make sure you delete the old one.</label>
+                                    <label for="guide">Before uploading a new cv, make sure you delete the old one. And the CV name must be "CV-Sanjil-Shakya.pdf"</label>
                                     <input type="file" class="form-control-file" name="file[]" id="file" multiple="">
                                 </div>
 

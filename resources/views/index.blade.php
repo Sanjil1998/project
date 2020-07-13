@@ -13,10 +13,15 @@
                             <p class="promo-block-text">Travel Loving Person &amp; Passion for designing</p>
                         </div>
                         <ul class="list-inline">
-                            <li><a href="https://www.facebook.com/19SanjilShakya98" class="social-icons"><i class="icon-social-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/sanjilshakya" class="social-icons"><i class="icon-social-twitter"></i></a></li>
-                            <li><a href="https://www.instagram.com/19_sanjil_shakya_98/" class="social-icons"><i class="icon-social-instagram"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/sanjil-shakya-23642b136" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
+                            @if(count($profile)>0)
+                            @foreach($profile as $profiles)
+
+                            <li><a href="{{$profiles->facebook}}" class="social-icons"><i class="icon-social-facebook"></i></a></li>
+                            <li><a href="{{$profiles->twitter}}" class="social-icons"><i class="icon-social-twitter"></i></a></li>
+                            <li><a href="{{$profiles->instagram}}" class="social-icons"><i class="icon-social-instagram"></i></a></li>
+                            <li><a href="{{$profiles->linkedin}}" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
+                            @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -44,35 +49,17 @@
                         </div>
 
                         <!-- Progress Box -->
+
                         <div class="progress-box">
-                            <h5>HTML5 <span class="color-heading pull-right">80%</span></h5>
+                            @foreach($skill as $skills)
+
+                            <h5>{{ $skills->skill_name }} <span class="color-heading pull-right">{{ $skills->skill_level }}%</span></h5>
                             <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="80"></div>
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="{{ $skills->skill_level }}"></div>
                             </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>JavaSript <span class="color-heading pull-right">40%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width=40></div>
-                            </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>CSS <span class="color-heading pull-right">70%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="70"></div>
-                            </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>Photoshop <span class="color-heading pull-right">60%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="60"></div>
-                            </div>
-                        </div>
-                        <div class="progress-box">
-                            <h5>PHP - Laravel Framework <span class="color-heading pull-right">30%</span></h5>
-                            <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="30"></div>
-                            </div>
+
+                            @endforeach
+
                         </div>
                         <!-- End Progress Box -->
                     </div>

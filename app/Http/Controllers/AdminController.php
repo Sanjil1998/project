@@ -16,8 +16,7 @@ class AdminController extends Controller
     }
 
     public function index(){
-        return view('auth.login');
-        // return redirect('/login');
+        return redirect('/login');
     }
     public function dashboard(){
         return view('admin.dashboard');
