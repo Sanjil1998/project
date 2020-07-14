@@ -68,6 +68,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::delete('/about/{id}/delete_skills', 'ProfileController@delete_skills')->name('admin.profile.about.delete_skills');
 
+        Route::get('/contact', 'ProfileController@contact')->name('admin.profile.contact');
+
+        Route::get('/work', 'ProfileController@work')->name('admin.profile.work');
+
     });
 
     // Blogs Routes

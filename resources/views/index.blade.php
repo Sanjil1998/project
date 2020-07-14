@@ -324,20 +324,22 @@
                             </div>
                         </div>
                         <div class="col-sm-8 col-sm-offset-1">
+                            @foreach($profile as $profiles)
                             <div class="row">
                                 <div class="col-md-4 col-xs-6 md-margin-b-30">
                                     <h5>Location</h5>
-                                    <a href="#">Chakupat, Lalitpur</a>
+                                    <a href="#">{{$profiles->address}}</a>
                                 </div>
                                 <div class="col-md-4 col-xs-6 md-margin-b-30">
                                     <h5>Phone</h5>
-                                    <a href="#">+977 9860305729</a>
+                                    <a href="tel:{{$profiles->phone}}">{{$profiles->phone}}</a>
                                 </div>
                                 <div class="col-md-4 col-xs-6">
                                     <h5>Email</h5>
-                                    <a href="mailto:shakya.sanjil1998@gmail.com">shakya.sanjil1998@gmail.com</a>
+                                    <a href="mailto:{{$profiles->gmail}}">{{$profiles->gmail}}</a>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                     <!--// end row -->

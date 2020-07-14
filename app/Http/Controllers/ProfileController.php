@@ -237,6 +237,15 @@ class ProfileController extends Controller
         return redirect(route('admin.profile.about'))->with('success', 'Skillset has been deleted');
     }
 
+    public function contact(){
+        $profile = Profile::all();
+        return view('admin.profile.contact')->with('profile',$profile);
+    }
+
+    public function work(){
+        return view('admin.profile.work.index');
+    }
+
 
 
 }

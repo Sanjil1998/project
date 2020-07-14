@@ -74,7 +74,7 @@
                                     <li><a href="{{route('admin.profile.about')}}" class="">About Me</a></li>
                                     <li><a href="{{route('admin.blogs.create')}}" class="">Experience</a></li>
                                     <li><a href="{{route('admin.blogs.create')}}" class="">Works</a></li>
-                                    <li><a href="{{route('admin.blogs.create')}}" class="">Contact</a></li>
+                                    <li><a href="{{route('admin.profile.contact')}}" class="">Contact</a></li>
                                     <li><a href="{{route('admin.profile.files')}}" class="">Files</a></li>
                                 </ul>
                             </div>
