@@ -142,38 +142,31 @@
                         <!-- Masonry Grid -->
                         <div class="masonry-grid row row-space-2">
                             <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+                            @foreach($work as $works)
                             <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
                                 <!-- Work -->
                                 <div class="work work-popup-trigger">
                                     <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="public/extra/img/397x300/03.jpg" alt="Portfolio Image" style="width: 800px; height: 400px;">
+                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/storage/app/public/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
                                     </div>
                                     <div class="work-popup-overlay">
                                         <div class="work-popup-content">
                                             <a href="javascript:void(0);" class="work-popup-close">Hide</a>
                                             <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
+                                                <h3 class="margin-b-5">{{$works->work_title}}</h3>
+                                                <span>{{$works->work_subtitle}}</span>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
                                                     <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>I got this project through my friend Nitesh, who participated on this project as a project leader. Shree Sushil English Boarding School is recognized by the government of Nepal. The main motive of this school is to provide quality education to all the childrens of the respective area of Musikot.</p>
-                                                        <p>There was a basic requirement for the customer Mr. Bibek Budha which was to design a static website for the online life of the school. The project was completed within a week where the mockup and the images had to be photoshopped and then converted into the HTML format.</p>
-                                                        <p><a href="https://shreesushillsebs.com/">Shree Sushil English Boarding School</a></p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Use of Photoshop</a></li>
-                                                        </ul>
+                                                        <p>{!! $works->work_description !!}</p>
+                                                        <p><a href="{{$works->work_links}}">{{$works->work_links}}</a></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> Nitesh Karmacharya</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Sanjil Shakya</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> - </p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Bibek Budha</p>
+                                                        <p class="margin-b-5"><strong>Project Done:</strong> {{$works->work_leader}}</p>
+                                                        <p class="margin-b-5"><strong>Customer:</strong> {{$works->work_provider}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,126 +175,7 @@
                                 </div>
                                 <!-- End Work -->
                             </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="public/extra/img/397x300/03.jpg" alt="Portfolio Image" style="width: 800px; height: 400px;">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>I got this project through my friend Nitesh, who participated on this project as a project leader. Shree Sushil English Boarding School is recognized by the government of Nepal. The main motive of this school is to provide quality education to all the childrens of the respective area of Musikot.</p>
-                                                        <p>There was a basic requirement for the customer Mr. Bibek Budha which was to design a static website for the online life of the school. The project was completed within a week where the mockup and the images had to be photoshopped and then converted into the HTML format.</p>
-                                                        <p><a href="https://shreesushillsebs.com/">Shree Sushil English Boarding School</a></p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Use of Photoshop</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> Nitesh Karmacharya</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Sanjil Shakya</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> - </p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Bibek Budha</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="public/extra/img/397x300/03.jpg" alt="Portfolio Image" style="width: 800px; height: 400px;">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>I got this project through my friend Nitesh, who participated on this project as a project leader. Shree Sushil English Boarding School is recognized by the government of Nepal. The main motive of this school is to provide quality education to all the childrens of the respective area of Musikot.</p>
-                                                        <p>There was a basic requirement for the customer Mr. Bibek Budha which was to design a static website for the online life of the school. The project was completed within a week where the mockup and the images had to be photoshopped and then converted into the HTML format.</p>
-                                                        <p><a href="https://shreesushillsebs.com/">Shree Sushil English Boarding School</a></p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Use of Photoshop</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> Nitesh Karmacharya</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Sanjil Shakya</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> - </p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Bibek Budha</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="public/extra/img/397x300/03.jpg" alt="Portfolio Image" style="width: 800px; height: 400px;">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">Art Of Coding</h3>
-                                                <span>Clean &amp; Minimalistic Design</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>I got this project through my friend Nitesh, who participated on this project as a project leader. Shree Sushil English Boarding School is recognized by the government of Nepal. The main motive of this school is to provide quality education to all the childrens of the respective area of Musikot.</p>
-                                                        <p>There was a basic requirement for the customer Mr. Bibek Budha which was to design a static website for the online life of the school. The project was completed within a week where the mockup and the images had to be photoshopped and then converted into the HTML format.</p>
-                                                        <p><a href="https://shreesushillsebs.com/">Shree Sushil English Boarding School</a></p>
-                                                        <ul class="list-inline work-popup-tag">
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Design,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Coding,</a></li>
-                                                            <li class="work-popup-tag-item"><a class="work-popup-tag-link" href="#">Use of Photoshop</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Leader:</strong> Nitesh Karmacharya</p>
-                                                        <p class="margin-b-5"><strong>Designer:</strong> Sanjil Shakya</p>
-                                                        <p class="margin-b-5"><strong>Developer:</strong> - </p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> Bibek Budha</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
+                            @endforeach
 
                         </div>
                         <!-- End Masonry Grid -->

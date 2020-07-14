@@ -78,8 +78,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="peofile-image">Profile Image</label>
-                                <input type="file" name="image" placeholder="Your Date of Birth" class="form-control-file {{ $errors->has('image') ? ' is-invalid' : '' }}"autofocus>
+                                <label for="profile-image">Profile Image</label>
+                                <input type="file" name="image" placeholder="profile image" class="form-control-file {{ $errors->has('image') ? ' is-invalid' : '' }}"autofocus>
                                 @if ($errors->has('image'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('image') }}</strong>

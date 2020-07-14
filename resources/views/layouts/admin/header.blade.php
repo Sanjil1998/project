@@ -19,20 +19,6 @@
                 <div id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                                <i class="lnr lnr-alarm"></i>
-                                <span class="badge bg-danger">5</span>
-                            </a>
-                            <ul class="dropdown-menu notifications">
-                                <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-                                <li><a href="#" class="more">See all notifications</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- <img src="{{URL::to('/')}}/public/assets/img/user.png" class="img-circle" alt="Avatar"> --> @auth <span class="text-capitalize">{{ Auth::user()->name}}</span> @endauth @guest<span>Samuel</span>@endguest <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.profile.index') }}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
@@ -73,7 +59,7 @@
                                     <li><a href="{{ route('admin.profile.index') }}" class="">My Profile</a></li>
                                     <li><a href="{{route('admin.profile.about')}}" class="">About Me</a></li>
                                     <li><a href="{{route('admin.blogs.create')}}" class="">Experience</a></li>
-                                    <li><a href="{{route('admin.blogs.create')}}" class="">Works</a></li>
+                                    <li><a href="{{route('admin.profile.work')}}" class="">Works</a></li>
                                     <li><a href="{{route('admin.profile.contact')}}" class="">Contact</a></li>
                                     <li><a href="{{route('admin.profile.files')}}" class="">Files</a></li>
                                 </ul>

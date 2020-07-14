@@ -8,6 +8,7 @@ use App\Document;
 use App\About;
 use App\Skills;
 use App\Profile;
+use App\Work;
 
 class ProfileController extends Controller
 {
@@ -21,7 +22,8 @@ class ProfileController extends Controller
         $skill = Skills::all();
         $user = User::all();
         $profile = Profile::all();
-        return view('admin.profile.index')->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile);
+        $work = Work::all();
+        return view('admin.profile.index')->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work);
     }
 
     public function edit_profile(){
@@ -243,7 +245,59 @@ class ProfileController extends Controller
     }
 
     public function work(){
-        return view('admin.profile.work.index');
+        $work = Work::all();
+        return view('admin.profile.work.index')->with('work', $work);
+    }
+
+    public function work_add(){
+        return view('admin.profile.work.create');
+    }
+
+    public function work_store(Request $request){
+        $this->validate($request, [
+            'work_title' => 'required|max:254',
+            'work_subtitle' => 'required|max:254',
+            'work_description' => 'required',
+            'work_image' => 'required|image',
+            'work_links' => 'required|url',
+            'work_leader' => 'nullable',
+            'work_provider' => 'nullable',
+        ]);
+
+        if ($request->hasFile('work_image')){
+            //Get filename with the extension
+            $filenameWithExt = $request->file('work_image')->getClientOriginalName();
+
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            //Get just ext
+            $extension = $request->file('work_image')->getClientOriginalExtension();
+
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            //Upload Image
+            $path = $request->file('work_image')->storeAs('public/work_images', $fileNameToStore);
+
+        }
+        else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        $work = new Work;
+        $work->work_title=$request->input('work_title');
+        $work->work_subtitle=$request->input('work_subtitle');
+        $work->work_description=$request->input('work_description');
+        $work->work_image=$fileNameToStore;
+        $work->work_links=$request->input('work_links');
+        $work->work_leader=$request->input('work_leader');
+        $work->work_provider=$request->input('work_provider');
+        $work->save();
+
+
+        return redirect(route('admin.profile.work'));
+
     }
 
 

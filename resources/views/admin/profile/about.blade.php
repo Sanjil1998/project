@@ -113,8 +113,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>About Content</th>
-                                <th>Created At</th>
+                                <th>Skill Name</th>
+                                <th>Skill Level</th>
                                 <th colspan="2">Action</th>
                             </tr>
                         </thead>

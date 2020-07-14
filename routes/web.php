@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes(['register'=> false]);
+Auth::routes(['blog'=> false]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -71,6 +72,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/contact', 'ProfileController@contact')->name('admin.profile.contact');
 
         Route::get('/work', 'ProfileController@work')->name('admin.profile.work');
+
+        Route::get('/work/add', 'ProfileController@work_add')->name('admin.profile.work.add');
+
+        Route::post('/work/store', 'ProfileController@work_store')->name('admin.profile.work.store');
 
     });
 

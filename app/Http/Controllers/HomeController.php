@@ -8,6 +8,7 @@ Use App\About;
 Use App\Document;
 Use App\Skills;
 Use App\Profile;
+Use App\Work;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,9 @@ class HomeController extends Controller
         $skill = Skills::all();
         $profile = Profile::all();
         $user = User::all();
+        $work = Work::all();
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
-        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile);
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work);
     }
     public function blogs()
     {
