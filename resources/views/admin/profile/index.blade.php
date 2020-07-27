@@ -61,7 +61,7 @@
 
                             @if(count($profile) > 1)
                             <div class="text-center">
-                                <a href="{{route('admin.profile.edit_profile')}}" class="btn btn-primary">Add Profile</a>
+                                <a href="{{route('admin.profile.create_profile')}}" class="btn btn-primary">Add Profile</a>
                             </div>
                             @endif
 

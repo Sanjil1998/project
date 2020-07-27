@@ -85,37 +85,34 @@
                                 <div class="col-md-4 md-margin-b-4">
                                     <div class="service" data-height="height">
                                         <div class="service-element">
-                                            <i class="service-icon icon-chemistry"></i>
-                                        </div>
-                                        <div class="service-info">
-                                            <h3>Digital Journal</h3>
-                                            <p class="margin-b-5">Designed an entire web application in Laravel framework as a college project.</p>
-                                        </div>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 md-margin-b-4">
-                                    <div class="service bg-color-base wow zoomIn" data-height="height" data-wow-duration=".3" data-wow-delay=".1s">
-                                        <div class="service-element">
-                                            <i class="service-icon color-white icon-screen-tablet"></i>
-                                        </div>
-                                        <div class="service-info">
-                                            <h3 class="color-white">Photoshop</h3>
-                                            <p class="color-white margin-b-5">Designed the mockup for the website to be designed.</p>
-                                        </div>
-                                        <a href="#" class="content-wrapper-link"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="service" data-height="height">
-                                        <div class="service-element">
                                             <i class="service-icon icon-badge"></i>
                                         </div>
                                         <div class="service-info">
-                                            <h3>Front-end</h3>
-                                            <p class="margin-b-5">Designed the website for Shree Sushil English Boarding School</p>
+                                            @foreach($experience as $experiences)
+                                            <h3>{{$experiences->experience_title}}</h3>
+                                            <p class="margin-b-5">{{$experiences->experience_description}}</p>
                                         </div>
-                                        <a href="https://shreesushillsebs.com/" class="content-wrapper-link"></a>
+                                        <a href="#" class="content-wrapper-link" data-toggle="modal" data-target="#experiencesmodal"></a>
+                                        <div class="modal fade" id="experiencesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                          <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h3 class="modal-title" id="exampleModalLongTitle">{{$experiences->experience_title}}</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p>{!!$experiences->experience_description!!}</p>
+                                                <p>{!!$experiences->experience_duties!!}</p>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hide</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -185,6 +182,64 @@
             </div>
         </div>
         <!-- End Work -->
+
+        <!-- Gallery -->
+        <div id="gallery">
+            <div class="container content-lg">
+                <div class="row">
+                    <div class="col-sm-3 sm-margin-b-30">
+                        <div class="text-right sm-text-left">
+                            <h2 class="margin-b-0">Gallery</h2>
+                            <p>Glimpses of my life.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-sm-offset-1">
+                        <!-- Masonry Grid -->
+                        <div class="masonry-grid row row-space-2">
+                            <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+                            @foreach($work as $works)
+                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
+                                <!-- Work -->
+                                <div class="work work-popup-trigger">
+                                    <div class="work-overlay">
+                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/storage/app/public/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
+                                    </div>
+                                    <div class="work-popup-overlay">
+                                        <div class="work-popup-content">
+                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
+                                            <div class="margin-b-30">
+                                                <h3 class="margin-b-5">{{$works->work_title}}</h3>
+                                                <span>{{$works->work_subtitle}}</span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
+                                                    <div class="margin-t-10 sm-margin-t-0">
+                                                        <p>{!! $works->work_description !!}</p>
+                                                        <p><a href="{{$works->work_links}}">{{$works->work_links}}</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="margin-t-10 sm-margin-t-0">
+                                                        <p class="margin-b-5"><strong>Project Done:</strong> {{$works->work_leader}}</p>
+                                                        <p class="margin-b-5"><strong>Customer:</strong> {{$works->work_provider}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Work -->
+                            </div>
+                            @endforeach
+
+                        </div>
+                        <!-- End Masonry Grid -->
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+        <!-- End Gallery -->
 
         <!-- Contact -->
         <div id="contact">

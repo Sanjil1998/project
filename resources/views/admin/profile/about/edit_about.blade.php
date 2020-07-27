@@ -26,7 +26,8 @@
                         {!!Form::textarea('body', $about->body, ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Body Text'])!!}
 
                         <div class="">
-                            <button type="submit" class="btn btn-primary pull-right p-5">Save</button>
+                            <a href="{{route('admin.profile.about')}}" class="btn btn-danger pull-right">Cancel</a>
+                            <button type="submit" class="btn btn-primary pull-right">Save</button>
                         </div>
 
                         {!! Form::close() !!}

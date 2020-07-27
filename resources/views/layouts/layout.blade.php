@@ -61,6 +61,7 @@
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#about">About</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#experience">Experience</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#work">Work</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#contact">Contact</a></li>
                                 <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/blogs">Blogs</a></li> -->
                             </ul>

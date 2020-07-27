@@ -14,7 +14,7 @@
                     <!-- OVERVIEW -->
                     <div class="panel panel-headline">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Overview</h3>
+                            <h3 class="panel-title">Dashboard Overview</h3>
                             <p class="panel-subtitle">Today: {{ date('yy-m-d') }}</p>
                         </div>
                         <div class="panel-body">

@@ -17,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register'=> false]);
 Auth::routes(['blog'=> false]);
 
+// Frontend Routes
+
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::prefix('blogs')->group(function(){
+    Route::get('/', 'HomeController@blogs')->name('home.blogs');
+});
+
+// Backend Routes
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -33,9 +41,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::get('/','ProfileController@index')->name('admin.profile.index');
 
-        Route::get('/edit_profile','ProfileController@edit_profile')->name('admin.profile.edit_profile');
+        Route::get('/create_profile','ProfileController@create_profile')->name('admin.profile.create_profile');
 
-        Route::post('/edit_profile/save','ProfileController@store_profile')->name('admin.profile.store_profile');
+        Route::post('/create_profile/save','ProfileController@store_profile')->name('admin.profile.store_profile');
 
         Route::get('/{id}/edit','ProfileController@update_profile')->name('admin.profile.update_profile');
 
@@ -77,6 +85,25 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::post('/work/store', 'ProfileController@work_store')->name('admin.profile.work.store');
 
+        Route::get('/work/{id}/edit', 'ProfileController@work_edit')->name('admin.profile.work.edit');
+
+        Route::put('/work/{id}/update', 'ProfileController@work_update')->name('admin.profile.work.update');
+
+        Route::delete('/work/{id}/delete', 'ProfileController@delete_work')->name('admin.profile.work.delete');
+
+        Route::get('/experience', 'ProfileController@experience')->name('admin.profile.experience');
+
+        Route::get('/experience/add', 'ProfileController@experience_add')->name('admin.profile.experience.add');
+
+        Route::post('/experience/store', 'ProfileController@experience_store')->name('admin.profile.experience.store');
+
+        Route::get('/experience/{id}/edit', 'ProfileController@experience_edit')->name('admin.profile.experience.edit');
+
+        Route::put('/experience/{id}/update', 'ProfileController@experience_update')->name('admin.profile.experience.update');
+
+        Route::delete('/experience/{id}/delete', 'ProfileController@delete_experience')->name('admin.profile.experience.delete');
+
+
     });
 
     // Blogs Routes
@@ -94,4 +121,3 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 });
 
-Route::get('/blogs', 'HomeController@blogs')->name('home.blogs');
