@@ -82,7 +82,7 @@
                             <a href="#subPages-gallery" data-toggle="collapse" class="collapsed {{ Request::is('admin/gallery') ? 'active' : '' }}"><i class="lnr lnr-picture"></i> <span>Gallery</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages-gallery" class="collapse ">
                                 <ul class="nav">
-                                    <li><a href="{{ route('admin.blogs.index') }}" class="">All Images</a></li>
+                                    <li><a href="{{ route('admin.gallery.index') }}" class="">All Images</a></li>
                                     <li><a href="{{route('admin.blogs.create')}}" class="">Add Image</a></li>
                                 </ul>
                             </div>

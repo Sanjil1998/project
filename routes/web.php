@@ -118,6 +118,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     });
 
+    // Gallery Routes
+
+    Route::prefix('gallery')->group(function(){
+        Route::get('/', 'GalleryController@index')->name('admin.gallery.index');
+    });
+
 
 });
 
