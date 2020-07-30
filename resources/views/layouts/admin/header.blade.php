@@ -83,7 +83,7 @@
                             <div id="subPages-gallery" class="collapse ">
                                 <ul class="nav">
                                     <li><a href="{{ route('admin.gallery.index') }}" class="">All Images</a></li>
-                                    <li><a href="{{route('admin.blogs.create')}}" class="">Add Image</a></li>
+                                    <li><a href="{{route('admin.gallery.create')}}" class="">Add Image</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -12,21 +12,24 @@
 
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-    <link href="public/extra/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
-    <link href="public/extra/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/public/extra/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/public/extra/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- PAGE LEVEL PLUGIN STYLES -->
-    <link href="public/css/addon-css/animate.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/public/css/addon-css/animate.css" rel="stylesheet">
 
     <!-- THEME STYLES -->
-    <link href="public/css/addon-css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/public/css/addon-css/layout.css" rel="stylesheet" type="text/css"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="public/css/addon-css/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/public/css/addon-css/styles.css">
     <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/public/assets/img/favicon.png">
+
+    <!-- Simple Lightbox Styles -->
+    <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
 </head>
 <!-- HEAD TAG ENDS -->
 
@@ -78,13 +81,16 @@
 
 
         <!--========== FOOTER ==========-->
+
         <footer class="{{ (request()->segment(1) == 'blogs') ? 'hidden' : '' }} footer" >
             <div class="content container">
                 <div class="row">
                     <div class="col-xs-6">
+                        @if(request()->segment(1) !== 'gallery')
                         @foreach($document as $documents)
                             <a href="{{URL::to('/')}}/public/files/{{$documents->file}}"  class="btn btn-info">Download CV</a>
                         @endforeach
+                        @endif
                     </div>
                     <div class="col-xs-6 text-right sm-text-left">
                         <p class="margin-b-0"><a class="fweight-700" href="#">Curriculum Viti</a> Developed By: <a class="fweight-700" href="">Sanjil Shakya</a></p>
@@ -93,6 +99,7 @@
                 <!--// end row -->
             </div>
         </footer>
+
         <footer class="{{ (request()->segment(1) != 'blogs') ? 'hidden' : '' }} footer">
 
         </footer>
@@ -122,6 +129,11 @@
         <script src="public/extra/js/components/progress-bar.min.js" type="text/javascript"></script>
         <script src="public/extra/js/components/masonry.min.js" type="text/javascript"></script>
         <script src="public/extra/js/components/wow.min.js" type="text/javascript"></script>
+
+        <!-- Simple LightBox Scripts -->
+        <script src="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.js"></script>
+
+        @yield('scripts')
 
     </body>
     <!-- END BODY -->

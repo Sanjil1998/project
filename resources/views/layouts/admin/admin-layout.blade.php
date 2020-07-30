@@ -26,6 +26,8 @@
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="{{URL::to('/')}}/public/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/public/assets/img/favicon.png">
+    <!-- Simple Lightbox Styles -->
+    <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
 </head>
 <body>
     <!-- WRAPPER -->
@@ -33,7 +35,6 @@
     @yield('header')
     @yield('content')
     @yield('footer')
-    @yield('scripts')
 
     <!-- WRAPPER -->
 
@@ -45,6 +46,11 @@
     <script src="{{URL::to('/')}}/public/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
     <script src="{{URL::to('/')}}/public/assets/vendor/chartist/js/chartist.min.js"></script>
     <script src="{{URL::to('/')}}/public/assets/scripts/klorofil-common.js"></script>
+
+    <!-- Simple LightBox Scripts -->
+    <script src="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.js"></script>
+
+    @yield('scripts')
 
 
 

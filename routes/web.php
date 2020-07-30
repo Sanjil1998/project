@@ -25,6 +25,8 @@ Route::prefix('blogs')->group(function(){
     Route::get('/', 'HomeController@blogs')->name('home.blogs');
 });
 
+Route::get('gallery', 'GalleryController@home')->name('gallery.home');
+
 // Backend Routes
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -122,6 +124,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::prefix('gallery')->group(function(){
         Route::get('/', 'GalleryController@index')->name('admin.gallery.index');
+        Route::get('/create', 'GalleryController@create')->name('admin.gallery.create');
+        Route::post('/store', 'GalleryController@store')->name('admin.gallery.store');
     });
 
 

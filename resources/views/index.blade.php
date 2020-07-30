@@ -194,46 +194,24 @@
                         </div>
                     </div>
                     <div class="col-sm-8 col-sm-offset-1">
-                        <!-- Masonry Grid -->
-                        <div class="masonry-grid row row-space-2">
-                            <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
-                            @foreach($work as $works)
-                            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-6 margin-b-4">
-                                <!-- Work -->
-                                <div class="work work-popup-trigger">
-                                    <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/storage/app/public/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
-                                    </div>
-                                    <div class="work-popup-overlay">
-                                        <div class="work-popup-content">
-                                            <a href="javascript:void(0);" class="work-popup-close">Hide</a>
-                                            <div class="margin-b-30">
-                                                <h3 class="margin-b-5">{{$works->work_title}}</h3>
-                                                <span>{{$works->work_subtitle}}</span>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p>{!! $works->work_description !!}</p>
-                                                        <p><a href="{{$works->work_links}}">{{$works->work_links}}</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="margin-t-10 sm-margin-t-0">
-                                                        <p class="margin-b-5"><strong>Project Done:</strong> {{$works->work_leader}}</p>
-                                                        <p class="margin-b-5"><strong>Customer:</strong> {{$works->work_provider}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Work -->
-                            </div>
-                            @endforeach
+                        <!-- gallery row starts -->
 
+                        <div class="row">
+                            <div class="gallery col-md-12">
+                                @foreach($gallery as $galleries)
+                                <div class="col-xs-12 col-sm-6 col-md-6 margin-b-5">
+                                    <a href="{{URL::to('/')}}/storage/app/public/galleryimages/{{$galleries->image}}" class="big">
+                                        <img class="full-width img-responsive img-fluid" src="{{ URL::to('/')}}/storage/app/public/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" style="width: 550px; height: 250px;" title="{{$galleries->image_title}}" />
+                                    </a>
+                                </div>
+                                @endforeach
+                                    <div class="clear"></div>
+                                    <a href="{{route('gallery.home')}}" class="btn btn-primary pull-right">View More</a>
+                                </div>
+                            </div>
                         </div>
-                        <!-- End Masonry Grid -->
+
+                        <!-- gallery row ends -->
                     </div>
                 </div>
                 <!--// end row -->
@@ -279,4 +257,12 @@
         <!--========== END PAGE LAYOUT ==========-->
 
 
+@endsection
+
+@section('scripts')
+<script>
+    (function() {
+        var $gallery = new SimpleLightbox('.gallery a', {});
+    })();
+</script>
 @endsection

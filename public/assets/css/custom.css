@@ -5,3 +5,7 @@
 .text-blue{
     color: blue;
 }
+
+.margin-b-5{
+    margin-bottom: 5px !important;;
+}

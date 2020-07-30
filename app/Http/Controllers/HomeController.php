@@ -10,6 +10,7 @@ Use App\Skills;
 Use App\Profile;
 Use App\Work;
 Use App\Experience;
+Use App\Gallery;
 
 class HomeController extends Controller
 {
@@ -33,8 +34,9 @@ class HomeController extends Controller
         $user = User::all();
         $work = Work::all();
         $experience = Experience::all();
+        $gallery = Gallery::orderBy('created_at', 'desc')->take(4)->get();
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
-        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience);
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery);
     }
     public function blogs()
     {
