@@ -27,6 +27,8 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/public/css/addon-css/styles.css">
     <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/public/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/css/custom.css">
+
 
     <!-- Simple Lightbox Styles -->
     <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
@@ -50,7 +52,8 @@
                     <!-- Logo -->
                         <div class="logo">
                             <a class="logo-wrap" href="{!! url('/'); !!}">
-                                <h3 class="text-color-custom">Sanjil Shakya</h3>
+                                <img src="{{URL::to('/')}}/public/assets/img/new-my-logo-transparent.png" alt="">
+                                <!-- <h3 class="text-color-custom">Sanjil Shakya</h3> -->
                             </a>
                         </div>
                     <!-- End Logo -->
@@ -93,7 +96,7 @@
                         @endif
                     </div>
                     <div class="col-xs-6 text-right sm-text-left">
-                        <p class="margin-b-0"><a class="fweight-700" href="#">Curriculum Viti</a> Developed By: <a class="fweight-700" href="">Sanjil Shakya</a></p>
+                        <p class="margin-b-0"><a class="fweight-700 pointer" onclick="window.location.reload();">Curriculum Viti</a> Developed By: <a class="fweight-700 pointer" onclick="window.location.reload();">Sanjil Shakya</a></p>
                     </div>
                 </div>
                 <!--// end row -->

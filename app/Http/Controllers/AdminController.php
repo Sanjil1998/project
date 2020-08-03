@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Auth;
+use App\User;
+use App\Gallery;
+use App\Work;
+use App\Skills;
+use App\Document;
 
 class AdminController extends Controller
 {
@@ -19,7 +23,13 @@ class AdminController extends Controller
         return redirect('/login');
     }
     public function dashboard(){
-        return view('admin.dashboard');
+        $totalimage = count(Gallery::all());
+        $totalwork = count(Work::all());
+        $totalskills = count(Skills::all());
+        $totaldocument = count(Document::all());
+        $skill = Skills::all();
+        $gallery = Gallery::orderBy('created_at', 'desc')->take(6)->get();
+        return view('admin.dashboard')->with('gallery', $gallery)->with('totalimage', $totalimage)->with('totalwork', $totalwork)->with('totalskills', $totalskills)->with('totaldocument', $totaldocument)->with('skill', $skill);
     }
     public function users(){
         return view('admin.users');

@@ -15,22 +15,26 @@
                     <div class="panel panel-headline">
                         <div class="panel-heading">
                             <h3 class="panel-title">Gallery Overview</h3>
-                            <p class="panel-subtitle">Today: {{ date('yy-m-d') }}</p>
+                            <p class="panel-subtitle">Today: {{ date('D M,Y') }}
+                                <a href="{{route('admin.gallery.create')}}" class="btn btn-primary pull-right">Add Image</a>
+                            </p>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="gallery col-md-12">
                                     @foreach($gallery as $galleries)
-                                    <div class="col-xs-12 col-sm-4 col-md-4">
-                                        <a href="{{URL::to('/')}}/storage/app/public/galleryimages/{{$galleries->image}}" class="big">
+                                    <div class="col-xs-12 col-sm-4 col-md-2">
+                                        <a href="{{URL::to('/')}}/public/storage/galleryimages/{{$galleries->image}}" class="big">
                                             <img class="full-width img-responsive img-fluid"
-                                            src="{{ URL::to('/')}}/storage/app/public/galleryimages/thumbnail/large_{{$galleries->image }}"
+                                            src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/medium_{{$galleries->image }}"
                                             alt=""
-                                            style="width: 550px; height: 250px;"
+                                            style="width: 300px; height: 185px;"
                                             title="{{$galleries->image_title}}"/>
-                                            <a href="#" class="btn btn-info">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
                                         </a>
+                                        {!! Form::open(['action' => ['GalleryController@delete', $galleries->id], 'method'=>'POST', 'class' => 'pl-0 pr-0' ]) !!}
+                                        {{Form::hidden('_method', 'DELETE')}}
+                                        {{Form::submit('Delete', ['class' => 'btn btn-danger pull-right'])}}
+                                        {!! Form::close() !!}
                                     </div>
                                     @endforeach
                                     <div class="clear"></div>

@@ -14,7 +14,7 @@ class GalleryController extends Controller
     }
 
     public function index(){
-        $gallery=Gallery::all();
+        $gallery=Gallery::orderBy('created_at', 'desc')->get();
         // dd(view('admin.gallery.index')->with('gallery', $gallery));
         return view('admin.gallery.index')->with('gallery', $gallery);
     }
@@ -86,5 +86,12 @@ class GalleryController extends Controller
         });
         $img->save($path);
 
+    }
+
+    public function delete($id){
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+
+        return redirect(route('admin.gallery.index'))->with('success', 'Image deleted from gallery');
     }
 }

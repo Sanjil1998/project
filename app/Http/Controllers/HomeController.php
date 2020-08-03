@@ -32,14 +32,22 @@ class HomeController extends Controller
         $skill = Skills::all();
         $profile = Profile::all();
         $user = User::all();
-        $work = Work::all();
-        $experience = Experience::all();
+        $work = Work::orderBy('created_at', 'desc')->take(4)->get();
+        $totalwork = count(Work::all());
+        $experience = Experience::orderBy('created_at', 'desc')->take(4)->get();
+        $totalexperience = count(Experience::all());
         $gallery = Gallery::orderBy('created_at', 'desc')->take(4)->get();
+        $totalgallery = count(Gallery::all());
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
-        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery);
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork);
     }
     public function blogs()
     {
         return view('blogs.index');
+    }
+
+    public function experience(){
+        $experience = Experience::all();
+        return view('experience.index')->with('experience', $experience);
     }
 }

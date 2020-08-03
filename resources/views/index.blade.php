@@ -113,6 +113,9 @@
                                           </div>
                                         </div>
                                         @endforeach
+                                        @if($totalexperience>4)
+                                        <a href="{{route('experience.index')}}" class="btn btn-primary pull-right">View More</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +147,7 @@
                                 <!-- Work -->
                                 <div class="work work-popup-trigger">
                                     <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/storage/app/public/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
+                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/public/storage/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
                                     </div>
                                     <div class="work-popup-overlay">
                                         <div class="work-popup-content">
@@ -173,6 +176,9 @@
                                 <!-- End Work -->
                             </div>
                             @endforeach
+                            @if($totalwork>4)
+                            <a href="{{route('work.index')}}" class="btn btn-primary pull-right">View More</a>
+                            @endif
 
                         </div>
                         <!-- End Masonry Grid -->
@@ -200,13 +206,15 @@
                             <div class="gallery col-md-12">
                                 @foreach($gallery as $galleries)
                                 <div class="col-xs-12 col-sm-6 col-md-6 margin-b-5">
-                                    <a href="{{URL::to('/')}}/storage/app/public/galleryimages/{{$galleries->image}}" class="big">
-                                        <img class="full-width img-responsive img-fluid" src="{{ URL::to('/')}}/storage/app/public/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" style="width: 550px; height: 250px;" title="{{$galleries->image_title}}" />
+                                    <a href="{{URL::to('/')}}/public/storage/galleryimages/{{$galleries->image}}" class="big">
+                                        <img class="full-width img-responsive img-fluid img-thumbnail" src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}" />
                                     </a>
                                 </div>
                                 @endforeach
                                     <div class="clear"></div>
+                                    @if($totalgallery>4)
                                     <a href="{{route('gallery.home')}}" class="btn btn-primary pull-right">View More</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

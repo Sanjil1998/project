@@ -2,6 +2,7 @@
 
 @section('content')
 
+
         <div class="container content-lg">
             <!-- gallery row starts -->
 
@@ -9,13 +10,13 @@
                 <h3>Gallery</h3>
                 <div class="gallery col-md-12">
                     @foreach($gallery as $galleries)
-                    <div class="col-xs-12 col-sm-4 col-md-4 margin-b-5">
-                        <a href="{{URL::to('/')}}/storage/app/public/galleryimages/{{$galleries->image}}" class="big">
+                    <div class="col-xs-12 col-sm-4 col-md-2 margin-b-6">
+                        <a href="{{URL::to('/')}}/public/storage/galleryimages/{{$galleries->image}}" class="big">
                             <img
-                            class="full-width img-responsive img-fluid"
-                            src="{{ URL::to('/')}}/storage/app/public/galleryimages/thumbnail/large_{{$galleries->image }}"
+                            class="full-width img-responsive img-fluid img-thumbnail"
+                            src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}"
                             alt=""
-                            style="width: 550px; height: 250px;"
+                            style="height: 200px;max-width: 100%;"
                             title="{{$galleries->image_title}}"/>
                         </a>
                     </div>

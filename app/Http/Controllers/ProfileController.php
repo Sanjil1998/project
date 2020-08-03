@@ -24,7 +24,8 @@ class ProfileController extends Controller
         $user = User::all();
         $profile = Profile::all();
         $work = Work::all();
-        return view('admin.profile.index')->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work);
+        $totalwork = count(Work::all());
+        return view('admin.profile.index')->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('totalwork', $totalwork);
     }
 
     public function create_profile(){

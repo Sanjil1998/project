@@ -27,6 +27,10 @@ Route::prefix('blogs')->group(function(){
 
 Route::get('gallery', 'GalleryController@home')->name('gallery.home');
 
+Route::get('experience', 'HomeController@experience')->name('experience.index');
+
+Route::get('work', 'HomeController@work')->name('work.index');
+
 // Backend Routes
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -126,6 +130,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', 'GalleryController@index')->name('admin.gallery.index');
         Route::get('/create', 'GalleryController@create')->name('admin.gallery.create');
         Route::post('/store', 'GalleryController@store')->name('admin.gallery.store');
+        Route::delete('/{id}/delete', 'GalleryController@delete')->name('admin.gallery.delete');
     });
 
 

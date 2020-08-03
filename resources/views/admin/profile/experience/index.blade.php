@@ -15,7 +15,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Experience Overview</h3>
-                    <p class="panel-subtitle">Today: {{ date('yy-m-d') }}
+                    <p class="panel-subtitle">Today: {{ date('D M,Y') }}
                         <a href="{{route('admin.profile.experience.add')}}" class="btn btn-primary pull-right">Add Experience</a>
                     </p>
 

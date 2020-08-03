@@ -9,3 +9,11 @@
 .margin-b-5{
     margin-bottom: 5px !important;;
 }
+
+.margin-b-6{
+    margin-bottom: 6px !important;
+}
+
+.pointer{
+    cursor: pointer;
+}

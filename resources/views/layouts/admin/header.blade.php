@@ -9,7 +9,7 @@
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="brand">
-                <a href="{{ route('admin.dashboard') }}"><img src="{{URL::to('/')}}/public/assets/img/logo-dark.png" alt="Admin Logo" class="img-responsive logo"></a>
+                <a href="{{ route('admin.dashboard') }}"><img src="{{URL::to('/')}}/public/assets/img/my-logo.png" alt="Admin Logo" class="img-responsive logo"></a>
             </div>
             <div class="container-fluid">
                 <div class="navbar-btn">
