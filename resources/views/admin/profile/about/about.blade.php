@@ -88,7 +88,7 @@
                              @csrf
                             <div class="form-group">
                                 <label for="skill">Type of skill</label>
-                                <input type="text" name="skill_name" class="form-control">
+                                <input type="text" name="skill_name" class="form-control" placeholder="Skill Name">
                             </div>
                             <div class="form-group">
                                 <label for="skill_level">Skill Level in percentage</label>

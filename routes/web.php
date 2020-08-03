@@ -41,6 +41,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/users','AdminController@users')->name('admin.users');
 
+    Route::get('/change-password', 'ChangePasswordController@index')->name('changepassword.index');
+
+    Route::post('/change-password', 'ChangePasswordController@store')->name('change.password');
+
 
     // Profile Routes
     Route::prefix('profile')->group(function(){

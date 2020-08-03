@@ -9,7 +9,7 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <div class="logo text-center"><img src="{{URL::to('/')}}/public/assets/img/logo-dark.png" alt="Klorofil Logo"></div>
+                                <div class="logo text-center"><img src="{{URL::to('/')}}/public/assets/img/login-logo.png" alt="Klorofil Logo" style="height: 125px;" class="img-fluid"></div>
                                 <p class="lead">Login to your account</p>
                             </div>
                             <form class="form-auth-small" method="POST" action="{{ route('login') }}">
@@ -32,27 +32,15 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="form-group clearfix">
-                                    <label class="fancy-checkbox element-left">
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span>Remember me</span>
-                                    </label>
-                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-                                <div class="bottom">
-                                    @if (Route::has('password.request'))
-                                        <span class="helper-text"><i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">Forgot password?</a></span>
-                                    @endif
-
-                                </div>
                             </form>
                         </div>
                     </div>
                     <div class="right">
                         <div class="overlay"></div>
                         <div class="content text">
-                            <h1 class="heading">Free Bootstrap dashboard template</h1>
-                            <p>by The Develovers</p>
+                            <h1 class="heading">Complete your portfolio with dashboard</h1>
+                            <p>for Someone Like You</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>

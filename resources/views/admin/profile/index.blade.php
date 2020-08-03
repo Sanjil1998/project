@@ -11,10 +11,10 @@
                 <!-- MAIN CONTENT -->
                 <div class="main-content">
                     <div class="container-fluid">
-                        <div class="panel panel-profile">
-                            <div class="clearfix">
+                        <div class="panel">
+                            <div class="row">
                                 <!-- LEFT COLUMN -->
-                                <div class="profile-left">
+                                <div class="col-md-5">
 
                                     <!-- PROFILE HEADER -->
                                     <div class="profile-header">
@@ -53,9 +53,9 @@
                                                 <li><a href="{{$profiles->linkedin}}" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
                                             </ul>
                                         </div>
-
                                         <div class="text-center">
                                             <a href="{{route('admin.profile.update_profile', [$profiles->id])}}" class="btn btn-warning">Edit Profile</a>
+                                            <a href="{{ route('changepassword.index') }}" class="btn btn-danger">Change Password</a>
                                         </div>
                                         @endforeach
 
@@ -64,16 +64,13 @@
                                             <a href="{{route('admin.profile.create_profile')}}" class="btn btn-primary">Add Profile</a>
                                         </div>
                                         @endif
-
-
                                     </div>
                                     <!-- END PROFILE DETAIL -->
                                 </div>
                                 <!-- END LEFT COLUMN -->
 
                                 <!-- RIGHT COLUMN -->
-                                <div class="profile-right">
-
+                                <div class="col-md-7">
                                     <!-- TABBED CONTENT -->
                                     <div class="custom-tabs-line tabs-line-bottom left-aligned">
                                         <ul class="nav" role="tablist">
@@ -111,9 +108,9 @@
                                     <!-- END TABBED CONTENT -->
                                 </div>
                                 <!-- END RIGHT COLUMN -->
+                                <div class="clearfix"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!-- END MAIN CONTENT -->
