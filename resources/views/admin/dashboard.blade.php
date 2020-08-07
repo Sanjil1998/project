@@ -19,7 +19,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-download"></i></span>
                                         <p>
@@ -28,7 +28,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-shopping-bag"></i></span>
                                         <p>
@@ -37,7 +37,16 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
+                                    <div class="metric">
+                                        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+                                        <p>
+                                            <span class="number">{{$totalexperience}}</span>
+                                            <span class="title">Experience</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-eye"></i></span>
                                         <p>
@@ -46,9 +55,9 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+                                        <span class="icon"><i class="fa fa-file"></i></span>
                                         <p>
                                             <span class="number">{{$totaldocument}}</span>
                                             <span class="title">Files</span>

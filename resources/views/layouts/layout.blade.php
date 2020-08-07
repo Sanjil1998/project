@@ -65,9 +65,15 @@
                             <ul class="nav navbar-nav navbar-nav-right">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}">Home</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#about">About</a></li>
+                                @if($totalexperience>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#experience">Experience</a></li>
+                                @endif
+                                @if($totalwork>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#work">Work</a></li>
+                                @endif
+                                @if($totalgallery>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
+                                @endif
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#contact">Contact</a></li>
                                 <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/blogs">Blogs</a></li> -->
                             </ul>
@@ -90,9 +96,13 @@
                 <div class="row">
                     <div class="col-xs-6">
                         @if(request()->segment(1) !== 'gallery')
+                        @if(request()->segment(1) !== 'experience')
+                        @if(request()->segment(1) !== 'work')
                         @foreach($document as $documents)
                             <a href="{{URL::to('/')}}/public/files/{{$documents->file}}"  class="btn btn-info">Download CV</a>
                         @endforeach
+                        @endif
+                        @endif
                         @endif
                     </div>
                     <div class="col-xs-6 text-right sm-text-left">

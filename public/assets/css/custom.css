@@ -17,3 +17,9 @@
 .pointer{
     cursor: pointer;
 }
+
+/*Css for file upload in image*/
+
+#img-upload{
+    width: 35%;
+}

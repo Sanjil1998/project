@@ -9,6 +9,7 @@ use App\Gallery;
 use App\Work;
 use App\Skills;
 use App\Document;
+use App\Experience;
 
 class AdminController extends Controller
 {
@@ -24,12 +25,13 @@ class AdminController extends Controller
     }
     public function dashboard(){
         $totalimage = count(Gallery::all());
+        $totalexperience = count(Experience::all());
         $totalwork = count(Work::all());
         $totalskills = count(Skills::all());
         $totaldocument = count(Document::all());
         $skill = Skills::all();
         $gallery = Gallery::orderBy('created_at', 'desc')->take(6)->get();
-        return view('admin.dashboard')->with('gallery', $gallery)->with('totalimage', $totalimage)->with('totalwork', $totalwork)->with('totalskills', $totalskills)->with('totaldocument', $totaldocument)->with('skill', $skill);
+        return view('admin.dashboard')->with('gallery', $gallery)->with('totalimage', $totalimage)->with('totalwork', $totalwork)->with('totalskills', $totalskills)->with('totaldocument', $totaldocument)->with('totalexperience', $totalexperience)->with('skill', $skill);
     }
     public function users(){
         return view('admin.users');

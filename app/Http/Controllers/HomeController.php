@@ -34,7 +34,7 @@ class HomeController extends Controller
         $user = User::all();
         $work = Work::orderBy('created_at', 'desc')->take(4)->get();
         $totalwork = count(Work::all());
-        $experience = Experience::orderBy('created_at', 'desc')->take(4)->get();
+        $experience = Experience::orderBy('created_at', 'desc')->take(3)->get();
         $totalexperience = count(Experience::all());
         $gallery = Gallery::orderBy('created_at', 'desc')->take(4)->get();
         $totalgallery = count(Gallery::all());
@@ -49,5 +49,10 @@ class HomeController extends Controller
     public function experience(){
         $experience = Experience::all();
         return view('experience.index')->with('experience', $experience);
+    }
+
+    public function work(){
+        $work = Work::all();
+        return view('work.index')->with('work', $work);
     }
 }

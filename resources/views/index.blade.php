@@ -31,6 +31,7 @@
         <!--========== SLIDER ==========-->
 
         <!--========== PAGE LAYOUT ==========-->
+
         <!-- About -->
         <div id="about">
             <div class="container content-lg">
@@ -70,6 +71,8 @@
         <!-- End About -->
 
         <!-- Experience -->
+
+        @if($totalexperience>0)
         <div id="experience">
             <div class="bg-color-sky-light" data-auto-height="true">
                 <div class="container content-lg">
@@ -82,13 +85,13 @@
                         </div>
                         <div class="col-sm-8 col-sm-offset-1">
                             <div class="row row-space-2 margin-b-4">
+                                @foreach($experience as $experiences)
                                 <div class="col-md-4 md-margin-b-4">
                                     <div class="service" data-height="height">
                                         <div class="service-element">
                                             <i class="service-icon icon-badge"></i>
                                         </div>
                                         <div class="service-info">
-                                            @foreach($experience as $experiences)
                                             <h3>{{$experiences->experience_title}}</h3>
                                             <p class="margin-b-5">{{$experiences->experience_description}}</p>
                                         </div>
@@ -112,12 +115,12 @@
                                             </div>
                                           </div>
                                         </div>
-                                        @endforeach
-                                        @if($totalexperience>4)
-                                        <a href="{{route('experience.index')}}" class="btn btn-primary pull-right">View More</a>
-                                        @endif
                                     </div>
                                 </div>
+                                @endforeach
+                                @if($totalexperience>3)
+                                <a href="{{route('experience.index')}}" class="btn btn-primary pull-right">View More</a>
+                                @endif
                             </div>
                             <!--// end row -->
                         </div>
@@ -126,9 +129,14 @@
                 </div>
             </div>
         </div>
+        @endif
+
         <!-- End Experience -->
 
+
+
         <!-- Work -->
+        @if($totalwork>0)
         <div id="work">
             <div class="container content-lg">
                 <div class="row">
@@ -187,9 +195,11 @@
                 <!--// end row -->
             </div>
         </div>
+        @endif
         <!-- End Work -->
 
         <!-- Gallery -->
+        @if($totalgallery>0)
         <div id="gallery">
             <div class="container content-lg">
                 <div class="row">
@@ -225,6 +235,7 @@
                 <!--// end row -->
             </div>
         </div>
+        @endif
         <!-- End Gallery -->
 
         <!-- Contact -->
