@@ -5,18 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Image;
 use App\Gallery;
+use App\Experience;
+use App\Work;
 
 class GalleryController extends Controller
 {
     public function home(){
         $gallery=Gallery::orderBy('created_at', 'desc')->get();
-        return view('gallery.index')->with('gallery', $gallery);
+        $totalgallery = count(Gallery::all());
+        $totalexperience = count(Experience::all());
+        $totalwork = count(Work::all());
+        return view('gallery.index')->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork);
     }
 
     public function index(){
         $gallery=Gallery::orderBy('created_at', 'desc')->get();
+        $totalgallery = count(Gallery::all());
         // dd(view('admin.gallery.index')->with('gallery', $gallery));
-        return view('admin.gallery.index')->with('gallery', $gallery);
+        return view('admin.gallery.index')->with('gallery', $gallery)->with('totalgallery', $totalgallery);
     }
 
     public function create(){

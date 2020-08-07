@@ -21,6 +21,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
+                                @if($totalgallery>0)
                                 <div class="gallery col-md-12">
                                     @foreach($gallery as $galleries)
                                     <div class="col-xs-12 col-sm-4 col-md-2">
@@ -37,10 +38,20 @@
                                         {!! Form::close() !!}
                                     </div>
                                     @endforeach
+
+
                                     <div class="clear"></div>
                                 </div>
+                                @else
+                                <div class="col-md-12">
+                                    <p>
+                                        No Images. <a href="{{route('admin.gallery.create')}}">Upload Image Here</a>
+                                    </p>
+                                </div>
+                                @endif
                             </div>
                         </div>
+
                     </div>
                     <!-- END OVERVIEW -->
                 </div>
