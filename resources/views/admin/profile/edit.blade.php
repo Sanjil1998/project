@@ -80,12 +80,13 @@
 
                             <div class="form-group">
                                 <label for="profile-image">Profile Image</label>
-                                <input type="file" name="image" placeholder="Your Date of Birth" class="form-control-file {{ $errors->has('image') ? ' is-invalid' : '' }}"autofocus value="{{ old('image') ?? $profile->image}}">
+                                <input type="file" name="image" placeholder="Your Date of Birth" class="form-control-file {{ $errors->has('image') ? ' is-invalid' : '' }}"autofocus value="{{ old('image') ?? $profile->image}}" id="imgInp">
                                 @if ($errors->has('image'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('image') }}</strong>
                                 </span>
                                 @endif
+                                <img id='img-upload'/>
 
                             </div>
 
@@ -159,4 +160,46 @@
 
 @section('footer')
 @include('layouts.admin.footer')
+@endsection
+
+@section('scripts')
+
+<script>
+    $(document).ready( function() {
+        $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function(event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+    });
+</script>
+
 @endsection

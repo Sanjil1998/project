@@ -11,6 +11,7 @@ Use App\Profile;
 Use App\Work;
 Use App\Experience;
 Use App\Gallery;
+Use App\Banner;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,9 @@ class HomeController extends Controller
         $gallery = Gallery::orderBy('created_at', 'desc')->take(4)->get();
         $totalgallery = count(Gallery::all());
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
-        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork);
+        $banner = Banner::all();
+        $totalbanner = count(Banner::all());
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork)->with('banner', $banner)->with('totalbanner', $totalbanner);
     }
     public function blogs()
     {

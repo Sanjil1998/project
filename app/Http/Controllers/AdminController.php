@@ -10,6 +10,7 @@ use App\Work;
 use App\Skills;
 use App\Document;
 use App\Experience;
+use App\Banner;
 
 class AdminController extends Controller
 {
@@ -31,7 +32,8 @@ class AdminController extends Controller
         $totaldocument = count(Document::all());
         $skill = Skills::all();
         $gallery = Gallery::orderBy('created_at', 'desc')->take(6)->get();
-        return view('admin.dashboard')->with('gallery', $gallery)->with('totalimage', $totalimage)->with('totalwork', $totalwork)->with('totalskills', $totalskills)->with('totaldocument', $totaldocument)->with('totalexperience', $totalexperience)->with('skill', $skill);
+        $totalbanner = count(Banner::all());
+        return view('admin.dashboard')->with('gallery', $gallery)->with('totalimage', $totalimage)->with('totalwork', $totalwork)->with('totalskills', $totalskills)->with('totaldocument', $totaldocument)->with('totalexperience', $totalexperience)->with('skill', $skill)->with('totalbanner', $totalbanner);
     }
     public function users(){
         return view('admin.users');

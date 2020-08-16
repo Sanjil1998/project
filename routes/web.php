@@ -135,6 +135,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/create', 'GalleryController@create')->name('admin.gallery.create');
         Route::post('/store', 'GalleryController@store')->name('admin.gallery.store');
         Route::delete('/{id}/delete', 'GalleryController@delete')->name('admin.gallery.delete');
+
+        // Banner Routes
+
+        Route::get('/banner', 'GalleryController@banner')->name('admin.gallery.banner.index');
+        Route::get('/banner/create', 'GalleryController@banner_create')->name('admin.gallery.banner.create');
+        Route::post('/banner/store', 'GalleryController@banner_store')->name('admin.gallery.banner.store');
+        Route::delete('/banner/{id}/delete', 'GalleryController@banner_delete')->name('admin.gallery.delete');
     });
 
 

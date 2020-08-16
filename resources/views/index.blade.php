@@ -4,7 +4,13 @@
 
 
         <!--========== SLIDER ==========-->
-        <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="public/extra/img/1920x1080/03.jpg">
+        @if($totalbanner>0)
+        @foreach($banner as $banners)
+        <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{URL::to('/')}}/public/storage/bannerimages/thumbnail/large_{{$banners->banner_image}}">
+        @endforeach
+        @else
+        <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{URL::to('/')}}/public/extra/img/1920x1080/03.jpg">
+        @endif
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
@@ -168,13 +174,17 @@
                                                 <div class="col-sm-8 work-popup-content-divider sm-margin-b-20">
                                                     <div class="margin-t-10 sm-margin-t-0">
                                                         <p>{!! $works->work_description !!}</p>
-                                                        <p><a href="{{$works->work_links}}">{{$works->work_links}}</a></p>
+                                                        <p><a href="{{$works->work_links}}" target="_blank">{{$works->work_links}}</a></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="margin-t-10 sm-margin-t-0">
+                                                        @if(($works->work_leader) !== NULL)
                                                         <p class="margin-b-5"><strong>Project Done:</strong> {{$works->work_leader}}</p>
+                                                        @endif
+                                                        @if(($works->work_provider) !== NULL)
                                                         <p class="margin-b-5"><strong>Customer:</strong> {{$works->work_provider}}</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>

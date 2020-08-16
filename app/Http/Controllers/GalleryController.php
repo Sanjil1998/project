@@ -7,6 +7,7 @@ use Image;
 use App\Gallery;
 use App\Experience;
 use App\Work;
+use App\Banner;
 
 class GalleryController extends Controller
 {
@@ -99,5 +100,86 @@ class GalleryController extends Controller
         $gallery->delete();
 
         return redirect(route('admin.gallery.index'))->with('success', 'Image deleted from gallery');
+    }
+
+    public function banner(){
+        $banner = Banner::all();
+        $totalbanner = count(Banner::all());
+        return view('admin.banner.index')->with('totalbanner', $totalbanner)->with('banner', $banner);
+    }
+
+    public function banner_create(){
+        $totalbanner = count(Banner::all());
+        if ($totalbanner<1) {
+            return view('admin.banner.create')->with('totalbanner', $totalbanner);
+        }
+        else{
+            return redirect(route('admin.gallery.banner.index'));
+        }
+    }
+
+    public function banner_store(Request $request){
+
+        $this->validate($request, [
+            'banner_image_title' => 'required|max:254',
+            'banner_image' => 'required|image',
+        ]);
+
+        if($request->hasFile('banner_image')){
+            //get filename with extension
+            $filenamewithextension = $request->file('banner_image')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $request->file('banner_image')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+
+            //small thumbnail name
+            $smallthumbnail = 'small_'.$filename.'_'.time().'.'.$extension;
+
+            //medium thumbnail name
+            $mediumthumbnail = 'medium_'.$filename.'_'.time().'.'.$extension;
+
+            //large thumbnail name
+            $largethumbnail = 'large_'.$filename.'_'.time().'.'.$extension;
+
+            //Upload File
+            $request->file('banner_image')->storeAs('public/bannerimages', $filenametostore);
+            $request->file('banner_image')->storeAs('public/bannerimages/thumbnail', $smallthumbnail);
+            $request->file('banner_image')->storeAs('public/bannerimages/thumbnail', $mediumthumbnail);
+            $request->file('banner_image')->storeAs('public/bannerimages/thumbnail', $largethumbnail);
+
+            //create small thumbnail
+            $smallthumbnailpath = public_path('storage/bannerimages/thumbnail/'.$smallthumbnail);
+            $this->createThumbnail($smallthumbnailpath, 300, 185);
+
+            //create medium thumbnail
+            $mediumthumbnailpath = public_path('storage/bannerimages/thumbnail/'.$mediumthumbnail);
+            $this->createThumbnail($mediumthumbnailpath, 550, 250);
+
+            //create large thumbnail
+            $largethumbnailpath = public_path('storage/bannerimages/thumbnail/'.$largethumbnail);
+            $this->createThumbnail($largethumbnailpath, 1920, 1080);
+
+        }
+
+        $banner = new Banner;
+        $banner->banner_image_title=$request->input('banner_image_title');
+        $banner->banner_image=$filenametostore;
+        $banner->save();
+
+        return redirect(route('admin.gallery.banner.index'))->with('success', "Banner image uploaded successfully.");
+
+    }
+
+    public function banner_delete($id){
+        $banner = Banner::find($id);
+        $banner->delete();
+
+        return redirect(route('admin.gallery.banner.index'))->with('success', 'Image deleted from gallery');
     }
 }

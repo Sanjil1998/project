@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-download"></i></span>
+                                        <span class="icon"><i class="fa fa-picture-o"></i></span>
                                         <p>
                                             <span class="number">{{$totalimage}}</span>
                                             <span class="title">Images</span>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+                                        <span class="icon"><i class="fa fa-tasks"></i></span>
                                         <p>
                                             <span class="number">{{$totalwork}}</span>
                                             <span class="title">Total Works</span>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-bar-chart"></i></span>
+                                        <span class="icon"><i class="fa fa-level-up"></i></span>
                                         <p>
                                             <span class="number">{{$totalexperience}}</span>
                                             <span class="title">Experience</span>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-eye"></i></span>
+                                        <span class="icon"><i class="fa fa-cogs"></i></span>
                                         <p>
                                             <span class="number">{{$totalskills}}</span>
                                             <span class="title">Skills</span>
@@ -57,10 +57,19 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="metric">
-                                        <span class="icon"><i class="fa fa-file"></i></span>
+                                        <span class="icon"><i class="fa fa-files-o"></i></span>
                                         <p>
                                             <span class="number">{{$totaldocument}}</span>
                                             <span class="title">Files</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="metric">
+                                        <span class="icon"><i class="fa fa-flag"></i></span>
+                                        <p>
+                                            <span class="number">{{$totalbanner}}</span>
+                                            <span class="title">Banner</span>
                                         </p>
                                     </div>
                                 </div>

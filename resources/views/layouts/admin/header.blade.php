@@ -22,7 +22,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- <img src="{{URL::to('/')}}/public/assets/img/user.png" class="img-circle" alt="Avatar"> --> @auth <span class="text-capitalize">{{ Auth::user()->name}}</span> @endauth @guest<span>Samuel</span>@endguest <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.profile.index') }}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                                <li><a href="{{ route('admin.blogs.index') }}"><i class="lnr lnr-file-empty"></i> <span>Blogs</span></a></li>
+                                <!-- <li><a href="{{ route('admin.blogs.index') }}"><i class="lnr lnr-file-empty"></i> <span>Blogs</span></a></li> -->
                                 @auth
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -82,6 +82,7 @@
                                 <ul class="nav">
                                     <li><a href="{{ route('admin.gallery.index') }}" class="">All Images</a></li>
                                     <li><a href="{{route('admin.gallery.create')}}" class="">Add Image</a></li>
+                                    <li><a href="{{route('admin.gallery.banner.index')}}" class="">Banner</a></li>
                                 </ul>
                             </div>
                         </li>
