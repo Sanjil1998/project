@@ -161,7 +161,7 @@
                                 <!-- Work -->
                                 <div class="work work-popup-trigger">
                                     <div class="work-overlay">
-                                        <img class="full-width img-responsive" src="{{URL::to('/')}}/public/storage/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 800px; height: 400px;">
+                                        <img class="full-width img-responsive img-thumbnail" src="{{URL::to('/')}}/public/storage/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 400px; height: 280px; margin: 0px auto">
                                     </div>
                                     <div class="work-popup-overlay">
                                         <div class="work-popup-content">
