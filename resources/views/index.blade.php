@@ -101,8 +101,8 @@
                                             <h3>{{$experiences->experience_title}}</h3>
                                             <p class="margin-b-5">{{$experiences->experience_description}}</p>
                                         </div>
-                                        <a href="#" class="content-wrapper-link" data-toggle="modal" data-target="#experiencesmodal"></a>
-                                        <div class="modal fade" id="experiencesmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <a href="#" class="content-wrapper-link" data-toggle="modal" data-target="#modal_{{$experiences->id}}"></a>
+                                        <div class="modal fade" id="modal_{{$experiences->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">
