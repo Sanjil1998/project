@@ -255,8 +255,8 @@
                     <div class="row">
                         <div class="col-sm-3 sm-margin-b-30">
                             <div class="text-right sm-text-left">
-                                <h2 class="margin-b-0">Contacts</h2>
-                                <p>Recruit me</p>
+                                <h2 class="margin-b-0">Get in touch</h2>
+                                <p>Contact me</p>
                             </div>
                         </div>
                         <div class="col-sm-8 col-sm-offset-1">
