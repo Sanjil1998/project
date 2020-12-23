@@ -99,7 +99,7 @@
                                         </div>
                                         <div class="service-info">
                                             <h3>{{$experiences->experience_title}}</h3>
-                                            <p class="margin-b-5">{{substr($experiences->experience_description, 0, 100)}}</p>
+                                            <p class="margin-b-5">{{substr($experiences->experience_description, 0, 120)}} ...</p>
                                         </div>
                                         <a href="#" class="content-wrapper-link" data-toggle="modal" data-target="#modal_{{$experiences->id}}"></a>
                                         <div class="modal fade" id="modal_{{$experiences->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
