@@ -74,7 +74,7 @@
                                     <!-- TABBED CONTENT -->
                                     <div class="custom-tabs-line tabs-line-bottom left-aligned">
                                         <ul class="nav" role="tablist">
-                                            <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Skills</a></li>
+                                            <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Skills <span class="badge">{{$totalskills}}</span></a></li>
                                             <li><a href="#tab-bottom-left2" role="tab" data-toggle="tab">Works <span class="badge">{{$totalwork}}</span></a></li>
                                         </ul>
                                     </div>
