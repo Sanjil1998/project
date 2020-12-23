@@ -23,7 +23,7 @@
                                             @foreach($profile as $profiles)
                                             <img src="{{URL::to('/')}}/public/storage/images/{{$profiles->image}}" class="img-circle" alt="Avatar" width="150" height="150">
                                             @endforeach
-                                            <h3 class="name">{{Auth::user()->name}}</h3>
+                                            <h3 class="name text-capitalize">{{Auth::user()->name}}</h3>
                                         </div>
                                     </div>
                                     <!-- END PROFILE HEADER -->
