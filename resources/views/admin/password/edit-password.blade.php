@@ -14,7 +14,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Profile Section</h3>
-                    <p class="panel-subtitle">Today: {{ date('D M,Y') }}</p>
+                    <p class="panel-subtitle">Today: {{ date('D, M Y') }}</p>
                 </div>
                 <div class="panel-body">
                     <form action="{{ route('change.password') }}" method="POST" enctype="multipart/form-data" class="md-form">

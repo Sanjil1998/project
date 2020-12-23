@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register'=> false]);
 Auth::routes(['blog'=> false]);
 
+
 // Frontend Routes
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -15,7 +15,7 @@
                     <div class="panel panel-headline">
                         <div class="panel-heading">
                             <h3 class="panel-title">Gallery Overview</h3>
-                            <p class="panel-subtitle">Today: {{ date('D M,Y') }}
+                            <p class="panel-subtitle">Today: {{ date('D, M Y') }}
                                 <a href="{{route('admin.gallery.create')}}" class="btn btn-primary pull-right">Add Image</a>
                             </p>
                         </div>

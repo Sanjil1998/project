@@ -58,4 +58,5 @@ class HomeController extends Controller
         $work = Work::all();
         return view('work.index')->with('work', $work);
     }
+
 }

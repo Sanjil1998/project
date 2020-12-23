@@ -15,7 +15,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">Contact</h3>
-                    <p class="panel-subtitle">Today: {{ date('D M,Y') }}</p>
+                    <p class="panel-subtitle">Today: {{ date('D, M Y') }}</p>
                 </div>
             </div>
             <!-- END OVERVIEW -->
