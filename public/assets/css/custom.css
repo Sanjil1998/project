@@ -23,3 +23,19 @@
 #img-upload{
     width: 35%;
 }
+
+.text-white{
+    color: white;
+    text-align: center;
+}
+
+.btn-view-more:hover{
+    color: white;
+    zoom: 1px;
+}
+
+.bg-color-orange{
+    background-color: #FF5733;
+}
+
+

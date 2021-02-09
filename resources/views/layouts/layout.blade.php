@@ -99,7 +99,7 @@
                         @if(request()->segment(1) !== 'experience')
                         @if(request()->segment(1) !== 'work')
                         @foreach($document as $documents)
-                            <a href="{{URL::to('/')}}/public/files/{{$documents->file}}"  class="btn btn-info">Download CV</a>
+                            <a href="{{URL::to('/')}}/public/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
                         @endforeach
                         @endif
                         @endif

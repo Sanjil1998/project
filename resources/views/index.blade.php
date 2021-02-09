@@ -125,7 +125,7 @@
                                 </div>
                                 @endforeach
                                 @if($totalexperience>3)
-                                <a href="{{route('experience.index')}}" class="btn btn-primary pull-right">View More</a>
+                                <a href="{{route('experience.index')}}" class="btn bg-color-orange text-white pull-right btn-view-more">View More</a>
                                 @endif
                             </div>
                             <!--// end row -->
@@ -195,7 +195,7 @@
                             </div>
                             @endforeach
                             @if($totalwork>4)
-                            <a href="{{route('work.index')}}" class="btn btn-primary pull-right">View More</a>
+                            <a href="{{route('work.index')}}" class="btn bg-color-orange text-white pull-right btn-view-more">View More</a>
                             @endif
 
                         </div>
@@ -233,7 +233,7 @@
                                 @endforeach
                                     <div class="clear"></div>
                                     @if($totalgallery>4)
-                                    <a href="{{route('gallery.home')}}" class="btn btn-primary pull-right">View More</a>
+                                    <a href="{{route('gallery.home')}}" class="btn bg-color-orange text-white pull-right btn-view-more">View More</a>
                                     @endif
                                 </div>
                             </div>
