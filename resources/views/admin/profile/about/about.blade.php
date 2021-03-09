@@ -55,7 +55,7 @@
                         @foreach($about as $abouts)
                         <tbody>
                             <tr>
-                                <td><p>{!!$abouts->body!!}</p></td>
+                                <td><p>{!!$abouts->body!!}</p><span class="text-right">Last Updated On: {{$abouts->updated_at}}</span></td>
                                 <td>{{$abouts->created_at}}</td>
                                 <td colspan="2">
                                     <a href="{{route('admin.profile.about.edit', [$abouts->id])}}" class="btn btn-warning">Edit</a>
