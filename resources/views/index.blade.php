@@ -62,7 +62,7 @@
 
                             <h5>{{ $skills->skill_name }} <span class="color-heading pull-right">{{ $skills->skill_level }}%</span></h5>
                             <div class="progress">
-                                <div class="progress-bar bg-color-base" role="progressbar" data-width="{{ $skills->skill_level }}"></div>
+                                <div class="progress-bar bg-color-orange" role="progressbar" data-width="{{ $skills->skill_level }}"></div>
                             </div>
 
                             @endforeach
