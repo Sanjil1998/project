@@ -1,4 +1,4 @@
-<div class="gallery">
+<!-- <div class="gallery">
                             <div class="col-md-4">
                                 <a href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/img/full/01.jpg" class="big"><img src="{{URL::to('/')}}/public/assets/vendor/simplelightbox/img/thumb/01.jpg" alt="" title="Beautiful Image" /></a>
                             </div>
@@ -13,3 +13,7 @@
                             </div>
                             <div class="clear"></div>
                         </div>
+
+
+                        
+ -->
