@@ -50,12 +50,12 @@ class HomeController extends Controller
     }
 
     public function experience(){
-        $experience = Experience::all();
+        $experience = Experience::orderBy('created_at', 'desc')->get();
         return view('experience.index')->with('experience', $experience);
     }
 
     public function work(){
-        $work = Work::all();
+        $work = Work::orderBy('created_at', 'desc')->get();
         return view('work.index')->with('work', $work);
     }
 

@@ -32,6 +32,9 @@
 
     <!-- Simple Lightbox Styles -->
     <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/public/assets/vendor/font-awesome/css/font-awesome.min.css">
 </head>
 <!-- HEAD TAG ENDS -->
 
@@ -65,6 +68,7 @@
                             <ul class="nav navbar-nav navbar-nav-right">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}">Home</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#about">About</a></li>
+                                @if(request()->segment(1) == '')
                                 @if($totalexperience>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#experience">Experience</a></li>
                                 @endif
@@ -73,6 +77,18 @@
                                 @endif
                                 @if($totalgallery>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
+                                @endif
+                                @endif
+
+
+                                @if(request()->segment(1) == 'gallery' || request()->segment(1) == 'experience' || request()->segment(1) == 'work')
+
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#experience">Experience</a></li>
+
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#work">Work</a></li>
+                                
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
+
                                 @endif
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#contact">Contact</a></li>
                                 <!-- <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/blogs">Blogs</a></li> -->
@@ -106,7 +122,7 @@
                         @endif
                     </div>
                     <div class="col-xs-6 text-right sm-text-left">
-                        <p class="margin-b-0"><a class="fweight-700 pointer" onclick="window.location.reload();">Curriculum Viti</a> Developed By: <a class="fweight-700 pointer" onclick="window.location.reload();">Sanjil Shakya</a></p>
+                        <p class="margin-b-0"><a class="fweight-700 pointer" onclick="window.location.reload();">Curriculum Viti (<?php echo date('Y') ?>)</a> Developed By: <a class="fweight-700 pointer" onclick="window.location.reload();">Sanjil Shakya</a></p>
                     </div>
                 </div>
                 <!--// end row -->

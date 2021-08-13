@@ -7,7 +7,10 @@
             <!-- gallery row starts -->
 
             <div class="row">
-                <h3>Gallery</h3>
+                <div class="text-center sm-text-left">
+                    <h2><i class="fa fa-picture-o"></i> Gallery</h2>
+                    <p>Take a look into my life...</p>
+                </div>
                 <div class="gallery col-md-12">
                     @foreach($gallery as $galleries)
                     <div class="col-xs-12 col-sm-4 col-md-4 margin-b-6">
