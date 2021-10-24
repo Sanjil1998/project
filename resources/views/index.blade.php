@@ -227,7 +227,7 @@
                                 @foreach($gallery as $galleries)
                                 <div class="col-xs-12 col-sm-6 col-md-6 margin-b-5">
                                     <a href="{{URL::to('/')}}/public/storage/galleryimages/{{$galleries->image}}" class="big">
-                                        <img class="full-width img-responsive img-fluid img-thumbnail" src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}" />
+                                        <img class="full-width img-responsive img-fluid img-thumbnail object-fit-img" src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}"/>
                                     </a>
                                 </div>
                                 @endforeach

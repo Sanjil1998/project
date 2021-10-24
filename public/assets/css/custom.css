@@ -1,3 +1,6 @@
+html{
+    /*scroll-behavior: smooth;*/
+}
 .text-red{
     color: red;
 }
@@ -38,4 +41,7 @@
     background-color: #FF5733;
 }
 
-
+/*Css for image in home*/
+.object-fit-img{
+    object-fit: cover;
+}
