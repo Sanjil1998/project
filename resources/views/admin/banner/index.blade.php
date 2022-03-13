@@ -40,7 +40,7 @@
                                     </a>
                                     {!! Form::open(['action' => ['GalleryController@banner_delete', $banners->id], 'method'=>'POST', 'class' => 'pl-0 pr-0' ]) !!}
                                     {{Form::hidden('_method', 'DELETE')}}
-                                    {{Form::submit('Delete', ['class' => 'btn btn-danger pull-right'])}}
+                                    {{Form::submit('Delete', ['class' => 'btn btn-danger pull-right',  , 'onclick' => 'return confirm("Confirm to delete.");'])}}
                                     {!! Form::close() !!}
                                 </div>
                                 @endforeach
