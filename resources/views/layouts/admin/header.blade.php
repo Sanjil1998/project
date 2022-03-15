@@ -66,7 +66,7 @@
                             </div>
                         </li>
 
-                        <!-- <li>
+                        <li>
                             <a href="#subPages-blogs" data-toggle="collapse" class="collapsed {{ Request::is('admin/blogs') ? 'active' : '' }}"><i class="lnr lnr-file-empty"></i> <span>Blogs</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages-blogs" class="collapse ">
                                 <ul class="nav">
@@ -74,7 +74,7 @@
                                     <li><a href="{{route('admin.blogs.create')}}" class="">Add Blog</a></li>
                                 </ul>
                             </div>
-                        </li> -->
+                        </li>
 
                         <li>
                             <a href="#subPages-gallery" data-toggle="collapse" class="collapsed {{ Request::is('admin/gallery') ? 'active' : '' }}"><i class="lnr lnr-picture"></i> <span>Gallery</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>

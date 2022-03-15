@@ -60,12 +60,12 @@
                         {!! Form::open(['class' => '', 'enctype' => 'multipart/form-data', 'action' => 'BlogController@store', 'method' => 'POST']) !!}
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" placeholder="title" class="form-control">
+                            <label for="blog_title">Title</label>
+                            <input type="text" name="blog_title" placeholder="title" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            {{Form::textarea('body', '', ['id' => 'editor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+                            {{Form::textarea('blog_body', '', ['id' => 'editor', 'class' => 'form-control'])}}
                         </div>
 
                         <div class="">

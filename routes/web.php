@@ -127,7 +127,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::get('/create','BlogController@create')->name('admin.blogs.create');
 
-        Route::get('/store','BlogController@store')->name('admin.blogs.store');
+        Route::post('/store','BlogController@store')->name('admin.blogs.store');
 
 
     });
