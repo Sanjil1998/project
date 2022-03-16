@@ -34,7 +34,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        $blog = Blog::all();
+        return view('admin.blogs.create')->with('blog', $blog);
     }
 
     /**
