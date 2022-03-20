@@ -23,7 +23,7 @@
                             <div class="metric">
                                 <span class="icon"><i class="lnr lnr-pencil"></i></span>
                                 <p>
-                                    <span class="number">1,252</span>
+                                    <span class="number">{{$totalBlog}}</span>
                                     <span class="title">Your Writings</span>
                                 </p>
                             </div>
@@ -32,8 +32,8 @@
                             <div class="metric">
                                 <span class="icon"><i class="lnr lnr-bookmark"></i></span>
                                 <p>
-                                    <span class="number">203</span>
-                                    <span class="title">Drafts</span>
+                                    <span class="number">{{$unpublishedBlog}}</span>
+                                    <span class="title">Unpublished Blogs</span>
                                 </p>
                             </div>
                         </div>
@@ -41,8 +41,8 @@
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-eye"></i></span>
                                 <p>
-                                    <span class="number">274,678</span>
-                                    <span class="title">Visits</span>
+                                    <span class="number">{{$publishedBlog}}</span>
+                                    <span class="title">Published Blogs</span>
                                 </p>
                             </div>
                         </div>
@@ -59,158 +59,64 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-md-4 col-xl-4">
-                                    <article class="post">
-                                        <div class="article-v2">
-                                            <figure class="article-thumb">
-                                                <a href="#">
-                                                    <img src="https://via.placeholder.com/350x280/FFB6C1/000000" alt="blog image" />
-                                                </a>
-                                            </figure>
-                                            <!-- /.article-thumb -->
-                                            <div class="article-content-main">
-                                                <div class="article-header">
-                                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                                    <div class="entry-meta">
-                                                        <div class="entry-date">July 25,2017</div>
-                                                        <!-- /.entry-date -->
-                                                        <div class="entry-cat">
-                                                            <a href="#">Halie Rose</a>
+                                {{-- counting number blogs --}}
+                                @if (count($blog)>0)
+                                
+                                    @foreach($blog as $blogs)
+                                    
+                                        <div class="col-md-4 col-xl-4">
+                                            <article class="post">
+                                                <div class="article-v2">
+                                                    <figure class="article-thumb">
+                                                        <a href="#">
+                                                            <img src="https://via.placeholder.com/350x280/FFB6C1/000000" alt="blog image" width="95%" class="border_radius"/>
+                                                        </a>
+                                                    </figure>
+                                                    <!-- /.article-thumb -->
+                                                    <div class="article-content-main border_radius">
+                                                        <div class="article-header">
+                                                            <h2 class="entry-title text-capitalize"><a href="{{route('admin.blogs.show', $blogs->id)}}">{{$blogs->blog_title}}</a></h2>
+                                                            <div class="entry-meta">
+                                                                <div class="entry-date">{{$blogs->created_at->format('Y-m-d')}}</div>
+                                                                <!-- /.entry-date -->
+                                                                <div class="entry-cat text-capitalize">{{$blogs->user->name}}</div>
+                                                                <!--  /.entry-cat -->
+                                                            </div>
+                                                            <!-- /.entry-meta -->
                                                         </div>
-                                                        <!--  /.entry-cat -->
+                                                        <!-- /.article-header -->
+                                                        <div class="article-content text-justify">
+                                                            <section>{!! substr($blogs->blog_body,0,100) !!} ...</section>
+                                                        </div>
+                                                        <!--  /.article-content -->
+                                                        <div class="article-footer">
+                                                            <div class="row">
+                                                                <div class="col-6 text-left footer-link">
+                                                                    <a href="{{route('admin.blogs.show', $blogs->id)}}" class="more-link">Read More</a>
+                                                                </div>
+                                                            </div>
+                                                            <!--  /.row -->
+                                                        </div>
+                                                        <!--  /.article-footer -->
                                                     </div>
-                                                    <!-- /.entry-meta -->
+                                                    <!--  /.article-content-main -->
                                                 </div>
-                                                <!-- /.article-header -->
-                                                <div class="article-content">
-                                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                                </div>
-                                                <!--  /.article-content -->
-                                                <div class="article-footer">
-                                                    <div class="row">
-                                                        <div class="col-6 text-left footer-link">
-                                                            <a href="#" class="more-link">Read More</a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                        <div class="col-6 text-right footer-meta">
-                                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                    </div>
-                                                    <!--  /.row -->
-                                                </div>
-                                                <!--  /.article-footer -->
-                                            </div>
-                                            <!--  /.article-content-main -->
+                                                <!--  /.article-v2 -->
+                                            </article>
+                                            <!--  /.post -->
                                         </div>
-                                        <!--  /.article-v2 -->
-                                    </article>
-                                    <!--  /.post -->
+
+                                    @endforeach
+
+                                @else
+
+                                <div class="alert">
+                                    <p>Oops!! No blogs found. Write something amazing <a href="{{route('admin.blogs.create')}}" class="text-uppercase">here</a></p>
                                 </div>
-                                <!--  /.col-md-6 -->
-                
-                                <div class="col-md-4 col-xl-4">
-                                    <article class="post">
-                                        <div class="article-v2">
-                                            <figure class="article-thumb">
-                                                <a href="#">
-                                                    <img src="https://via.placeholder.com/350x280/87CEFA/000000" alt="blog image" />
-                                                </a>
-                                            </figure>
-                                            <!-- /.article-thumb -->
-                                            <div class="article-content-main">
-                                                <div class="article-header">
-                                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                                    <div class="entry-meta">
-                                                        <div class="entry-date">July 25,2017</div>
-                                                        <!-- /.entry-date -->
-                                                        <div class="entry-cat">
-                                                            <a href="#">Halie Rose</a>
-                                                        </div>
-                                                        <!--  /.entry-cat -->
-                                                    </div>
-                                                    <!-- /.entry-meta -->
-                                                </div>
-                                                <!-- /.article-header -->
-                                                <div class="article-content">
-                                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                                </div>
-                                                <!--  /.article-content -->
-                                                <div class="article-footer">
-                                                    <div class="row">
-                                                        <div class="col-6 text-left footer-link">
-                                                            <a href="#" class="more-link">Read More</a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                        <div class="col-6 text-right footer-meta">
-                                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                    </div>
-                                                    <!--  /.row -->
-                                                </div>
-                                                <!--  /.article-footer -->
-                                            </div>
-                                            <!--  /.article-content-main -->
-                                        </div>
-                                        <!--  /.article-v2 -->
-                                    </article>
-                                    <!--  /.post -->
-                                </div>
-                                <!--  /.col-md-6 -->
-                
-                                <div class="col-md-4 col-xl-4">
-                                    <article class="post">
-                                        <div class="article-v2">
-                                            <figure class="article-thumb">
-                                                <a href="#">
-                                                    <img src="https://via.placeholder.com/350x280/20B2AA/000000" alt="blog image" />
-                                                </a>
-                                            </figure>
-                                            <!-- /.article-thumb -->
-                                            <div class="article-content-main">
-                                                <div class="article-header">
-                                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                                    <div class="entry-meta">
-                                                        <div class="entry-date">July 25,2017</div>
-                                                        <!-- /.entry-date -->
-                                                        <div class="entry-cat">
-                                                            <a href="#">Halie Rose</a>
-                                                        </div>
-                                                        <!--  /.entry-cat -->
-                                                    </div>
-                                                    <!-- /.entry-meta -->
-                                                </div>
-                                                <!-- /.article-header -->
-                                                <div class="article-content">
-                                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                                </div>
-                                                <!--  /.article-content -->
-                                                <div class="article-footer">
-                                                    <div class="row">
-                                                        <div class="col-6 text-left footer-link">
-                                                            <a href="#" class="more-link">Read More</a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                        <div class="col-6 text-right footer-meta">
-                                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                                        </div>
-                                                        <!--  /.col-6 -->
-                                                    </div>
-                                                    <!--  /.row -->
-                                                </div>
-                                                <!--  /.article-footer -->
-                                            </div>
-                                            <!--  /.article-content-main -->
-                                        </div>
-                                        <!--  /.article-v2 -->
-                                    </article>
-                                    <!--  /.post -->
-                                </div>
-                                <!--  /.col-md-6 -->
+                                    
+                                @endif
+                                
+                                
                             </div>
                             <!--  /.blog-carousel -->
                         </div>

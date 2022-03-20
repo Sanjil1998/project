@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -128,6 +129,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/create','BlogController@create')->name('admin.blogs.create');
 
         Route::post('/store','BlogController@store')->name('admin.blogs.store');
+
+        Route::get('/{id}', 'BlogController@show')->name('admin.blogs.show');
+
+        Route::get('/{id}/edit', 'BlogController@edit')->name('admin.blogs.edit');
+
+        Route::put('/{id}/update','BlogController@update')->name('admin.blogs.update');
 
 
     });

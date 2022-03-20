@@ -51,6 +51,36 @@
             </div>
             <!-- END OVERVIEW -->
 
+            <!-- BLOG SECTION -->
+
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+
+                        {!! Form::open(['class' => '', 'enctype' => 'multipart/form-data', 'action' => ['BlogController@update', $blog->id], 'method' => 'POST']) !!}
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label for="blog_title">Title</label>
+                            <input type="text" name="blog_title" placeholder="title" class="form-control" value="{{$blog->blog_title}}">
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::textarea('blog_body', $blog->blog_body, ['id' => 'editor', 'class' => 'form-control'])}}
+                        </div>
+
+                        <div class="">
+                            <button type="submit" class="btn btn-primary pull-right p-5">Save</button>
+                        </div>
+
+                        {!! Form::close() !!}
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- END BLOG SECTION -->
+
         </div>
     </div>
     <!-- END MAIN CONTENT -->

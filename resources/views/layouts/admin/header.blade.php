@@ -67,11 +67,11 @@
                         </li>
 
                         <li>
-                            <a href="#subPages-blogs" data-toggle="collapse" class="collapsed {{ Request::is('admin/blogs') ? 'active' : '' }}"><i class="lnr lnr-file-empty"></i> <span>Blogs</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <a href="#subPages-blogs" data-toggle="collapse" class="collapsed {{ Request::is('admin/blogs') ? 'active' : '' }}"><i class="lnr lnr-pencil"></i> <span>Blogs</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages-blogs" class="collapse ">
                                 <ul class="nav">
-                                    <li><a href="{{ route('admin.blogs.index') }}" class="">All Blogs</a></li>
-                                    <li><a href="{{route('admin.blogs.create')}}" class="">Add Blog</a></li>
+                                    <li><a href="{{ route('admin.blogs.index') }}" class="">Blog List</a></li>
+                                    <li><a href="{{route('admin.blogs.create')}}" class="">New Blog</a></li>
                                 </ul>
                             </div>
                         </li>

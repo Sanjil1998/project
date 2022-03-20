@@ -19,7 +19,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-picture-o"></i></span>
                                         <p>
@@ -28,16 +28,16 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-tasks"></i></span>
                                         <p>
                                             <span class="number">{{$totalwork}}</span>
-                                            <span class="title">Total Works</span>
+                                            <span class="title">Works</span>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-level-up"></i></span>
                                         <p>
@@ -46,7 +46,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-cogs"></i></span>
                                         <p>
@@ -55,7 +55,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-files-o"></i></span>
                                         <p>
@@ -64,7 +64,16 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
+                                    <div class="metric">
+                                        <span class="icon"><i class="lnr lnr-pencil"></i></span>
+                                        <p>
+                                            <span class="number">{{$totalBlog}}</span>
+                                            <span class="title">Blogs</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="metric">
                                         <span class="icon"><i class="fa fa-flag"></i></span>
                                         <p>
@@ -95,7 +104,7 @@
                                 <div class="panel-body">
                                     @foreach($gallery as $galleries)
                                     <div class="col-sm-12 col-xs-12 col-md-4 margin-b-5">
-                                        <img src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;">
+                                        <img src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
                                     </div>
                                     @endforeach
 

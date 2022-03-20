@@ -19,7 +19,6 @@ class CreateBlogsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('blog_title');
             $table->longText('blog_body');
-            // $table->string('slug')->unique();
             $table->tinyInteger('blog_status')->default(0);
             $table->tinyInteger('publish_status')->default(0);
 

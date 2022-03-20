@@ -24,7 +24,11 @@ class BlogController extends Controller
 
     public function index()
     {
-        return view('admin.blogs.index');
+        $blog = Blog::all();
+        $totalBlog = count(Blog::all());
+        $unpublishedBlog = count(Blog::where('blog_status',0)->get());
+        $publishedBlog = $totalBlog - $unpublishedBlog;
+        return view('admin.blogs.index')->with('blog', $blog)->with('totalBlog', $totalBlog)->with('unpublishedBlog', $unpublishedBlog)->with('publishedBlog', $publishedBlog);
     }
 
     /**
@@ -60,10 +64,17 @@ class BlogController extends Controller
         $blog->blog_body = $request->input('blog_body');
         $blog->user_id = auth()->user()->id;
 
+        $slug_item = $request->input('blog_title');
+        $slug_item = strtolower($slug_item);
+        $res_slug_item = str_replace(" ", "-", $slug_item);
+
+        // dd($res_slug_item);
+
+        $blog->slug = $res_slug_item;
+
         $blog->save();
 
-        return view('admin.blogs.index')->with('success', 'Blog has been successfully added.');
-        
+        return redirect(route('admin.blogs.index'))->with('success', 'Successfully added');
 
 
     }
@@ -76,7 +87,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $blog = Blog::find($id);
+        return view('admin.blogs.show')->with('blog', $blog);
     }
 
     /**
@@ -87,7 +99,15 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        //Check for correct user
+        if (auth()->user()->id !== $blog->user_id){
+            return back()->with('error', 'Unauthorized Page.');
+        }
+        else{
+        return view('admin.blogs.edit')->with('blog', $blog);
+        }
     }
 
     /**
@@ -99,7 +119,30 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'blog_title' => 'required',
+            'blog_body' => 'required|',
+
+        ]);
+
+
+
+        $blog = Blog::find($id);
+        $blog->blog_title = $request->input('blog_title');
+        $blog->blog_body = $request->input('blog_body');
+        $blog->user_id = auth()->user()->id;
+        $blog->blog_status = 0;
+        $blog->publish_status = 0;
+
+        $slug_item = $request->input('blog_title');
+        $slug_item = strtolower($slug_item);
+        $res_slug_item = str_replace(" ", "-", $slug_item);
+        $blog->slug = $res_slug_item;
+
+        $blog->save();
+        return redirect(route('admin.blogs.index'))->with('success', 'Successfully updated.');
+
+        // return view('admin.blogs.index')->with('success', 'Blog has been successfully updated.');
     }
 
     /**

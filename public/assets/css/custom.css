@@ -54,7 +54,7 @@ body{margin-top:20px;}
 }
 
 .post .article-v2 .entry-title {
-  font-size: 16px;
+  font-size: 18px;
   color: #666666;
   font-weight: 600;
 }
@@ -108,6 +108,16 @@ body{margin-top:20px;}
 .post .article-v2 .article-footer .footer-meta a i {
   font-size: 16px;
   margin-left: 2px;
+}
+
+.border_radius{
+  border-radius: 5px;
+}
+
+.entry-cat{
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b98c8;
 }
 
 /* blog css ends  */

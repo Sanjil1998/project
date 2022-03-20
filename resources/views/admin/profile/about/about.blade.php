@@ -69,7 +69,7 @@
                         @endforeach
                     </table>
                     @else
-                    <p>Your about section is null</p>
+                    <p>Your about section is empty</p>
                     @endif
                 </div>
             </div>
