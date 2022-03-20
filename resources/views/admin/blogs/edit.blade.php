@@ -92,3 +92,10 @@
 @section('footer')
 @include('layouts.admin.footer')
 @endsection
+
+@section('scripts')
+<script src="{{URL::to('/')}}/node_modules/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>
+@endsection
