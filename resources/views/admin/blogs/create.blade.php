@@ -23,7 +23,7 @@
                             <div class="metric">
                                 <span class="icon"><i class="lnr lnr-pencil"></i></span>
                                 <p>
-                                    <span class="number">1,252</span>
+                                    <span class="number">{{$totalBlog}}</span>
                                     <span class="title">Your Writings</span>
                                 </p>
                             </div>
@@ -32,8 +32,8 @@
                             <div class="metric">
                                 <span class="icon"><i class="lnr lnr-bookmark"></i></span>
                                 <p>
-                                    <span class="number">203</span>
-                                    <span class="title">Drafts</span>
+                                    <span class="number">{{$unpublishedBlog}}</span>
+                                    <span class="title">Unpublished Blogs</span>
                                 </p>
                             </div>
                         </div>
@@ -41,8 +41,8 @@
                             <div class="metric">
                                 <span class="icon"><i class="fa fa-eye"></i></span>
                                 <p>
-                                    <span class="number">274,678</span>
-                                    <span class="title">Published</span>
+                                    <span class="number">{{$publishedBlog}}</span>
+                                    <span class="title">Published Blogs</span>
                                 </p>
                             </div>
                         </div>

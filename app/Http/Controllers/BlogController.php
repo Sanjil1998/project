@@ -39,7 +39,10 @@ class BlogController extends Controller
     public function create()
     {
         $blog = Blog::all();
-        return view('admin.blogs.create')->with('blog', $blog);
+        $totalBlog = count(Blog::all());
+        $unpublishedBlog = count(Blog::where('blog_status',0)->get());
+        $publishedBlog = $totalBlog - $unpublishedBlog;
+        return view('admin.blogs.create')->with('blog', $blog)->with('totalBlog', $totalBlog)->with('unpublishedBlog', $unpublishedBlog)->with('publishedBlog', $publishedBlog);
     }
 
     /**
@@ -100,13 +103,16 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
+        $totalBlog = count(Blog::all());
+        $unpublishedBlog = count(Blog::where('blog_status',0)->get());
+        $publishedBlog = $totalBlog - $unpublishedBlog;
 
         //Check for correct user
         if (auth()->user()->id !== $blog->user_id){
             return back()->with('error', 'Unauthorized Page.');
         }
         else{
-        return view('admin.blogs.edit')->with('blog', $blog);
+        return view('admin.blogs.edit')->with('blog', $blog)->with('totalBlog', $totalBlog)->with('unpublishedBlog', $unpublishedBlog)->with('publishedBlog', $publishedBlog);
         }
     }
 
