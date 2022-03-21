@@ -22,7 +22,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- <img src="{{URL::to('/')}}/public/assets/img/user.png" class="img-circle" alt="Avatar"> --> @auth <span class="text-capitalize">{{ Auth::user()->name}}</span> @endauth @guest<span>Samuel</span>@endguest <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.profile.index') }}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                                <!-- <li><a href="{{ route('admin.blogs.index') }}"><i class="lnr lnr-file-empty"></i> <span>Blogs</span></a></li> -->
+                               <li><a href="{{ route('admin.blogs.index') }}"><i class="lnr lnr-pencil"></i> <span>Blogs</span></a></li>
                                 @auth
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -70,7 +70,8 @@
                             <a href="#subPages-blogs" data-toggle="collapse" class="collapsed {{ Request::is('admin/blogs') ? 'active' : '' }}"><i class="lnr lnr-pencil"></i> <span>Blogs</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages-blogs" class="collapse ">
                                 <ul class="nav">
-                                    <li><a href="{{ route('admin.blogs.index') }}" class="">Blog List</a></li>
+                                    <li><a href="{{ route('admin.blogs.index') }}" class="">Blog Posts</a></li>
+                                    <li><a href="{{ route('admin.blogs.blogList') }}" class="">Blogs Collection</a></li>
                                     <li><a href="{{route('admin.blogs.create')}}" class="">New Blog</a></li>
                                 </ul>
                             </div>

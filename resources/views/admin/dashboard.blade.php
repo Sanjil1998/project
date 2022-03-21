@@ -92,7 +92,7 @@
 
                     <div class="row">
                         <div class="col-md-7">
-                            <!-- TODO LIST -->
+                            <!-- GALLERY LIST -->
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Recent Images</h3>
@@ -110,7 +110,7 @@
 
                                 </div>
                             </div>
-                            <!-- END TODO LIST -->
+                            <!-- END GALLERY LIST -->
                         </div>
                         <div class="col-md-5">
                             <!-- TIMELINE -->
@@ -133,6 +133,29 @@
                                 </div>
                             </div>
                             <!-- END TIMELINE -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- BLOG LIST -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Latest Blogs</h3>
+                                    <div class="right">
+                                        <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                        <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    @foreach($gallery as $galleries)
+                                    <div class="col-sm-12 col-xs-12 col-md-4 margin-b-5">
+                                        <img src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            <!-- END BLOG LIST -->
                         </div>
                     </div>
                 </div>

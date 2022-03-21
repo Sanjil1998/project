@@ -159,6 +159,16 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->delete();
+
+        return back()->with('success', 'Item has been deleted successfully');
+    }
+
+    public function blogList()
+    {
+        $blogList = Blog::all();
+        $totalBlogs = \count(Blog::all());
+        return view('admin.blogs.blogList')->with('blogList', $blogList)->with('totalBlogs', $totalBlogs);
     }
 }

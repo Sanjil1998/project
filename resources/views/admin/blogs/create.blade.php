@@ -68,6 +68,17 @@
                             {{Form::textarea('blog_body', '', ['id' => 'editor', 'class' => 'form-control'])}}
                         </div>
 
+                        <div class="form-group">
+                            <label for="blog_image">Upload Image</label>
+                            <input type="file" name="blog_image" placeholder="Upload Image" class="form-control-file {{ $errors->has('blog_image') ? ' is-invalid' : '' }}" id="imgInp">
+                            @if ($errors->has('blog_image'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('blog_image') }}</strong>
+                            </span>
+                            @endif
+                            <img id='img-upload'/>
+                        </div>
+
                         <div class="">
                             <button type="submit" class="btn btn-primary pull-right p-5">Save</button>
                         </div>
@@ -98,5 +109,43 @@
 <script src="{{URL::to('/')}}/node_modules/ckeditor/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor' );
+</script>
+
+<script>
+    $(document).ready( function() {
+        $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function(event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                log = label;
+
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+        });
+    });
 </script>
 @endsection

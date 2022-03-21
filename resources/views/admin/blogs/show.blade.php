@@ -8,23 +8,38 @@
 
 <!-- MAIN -->
 <div class="main">
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <div class="container-fluid">
-            <div class="panel panel-headline">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="article-header">
-                            <h2 class="entry-title text-capitalize">{{$blog->blog_title}}</h2>
-                        </div>
-                        <div class="article-content">
-                            <section>{!! $blog->blog_body !!}</section>
-                        </div>
+    <!-- Page content-->
+    <div class="container mt-5" style="width: 100%">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Post content-->
+                <div class="panel panel-content">
+                    <div class="panel-body">
+                        <article>
+                            <!-- Post header-->
+                            <header class="mb-4">
+                                <!-- Post title-->
+                                <h1 class="fw-bolder mb-1">{{$blog->blog_title}}</h1>
+                                <!-- Post meta content-->
+                                <div class="text-muted fst-italic mb-2">Posted on {{$blog->created_at->format('D, M Y')}} by <span class="text-capitalize">{{$blog->user->name}}</span></div>
+                                <!-- Post categories-->
+                                {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a> --}}
+                                {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> --}}
+                            </header>
+                            <!-- Preview image figure-->
+                            <figure class="mb-10"><img class="img-fluid rounded center-img" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..."/></figure>
+                            <!-- Post content-->
+                            <section class="mb-10">
+                                {!! $blog->blog_body !!}
+                            </section>
+                        </article>
                     </div>
                 </div>
+                
+                <!-- Comments section-->
+                
             </div>
-            <!-- END OVERVIEW -->
-
+            
         </div>
     </div>
     <!-- END MAIN CONTENT -->

@@ -28,6 +28,8 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/public/assets/img/favicon.png">
     <!-- Simple Lightbox Styles -->
     <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
+    {{-- datatable css  --}}
+
 </head>
 <body>
     <!-- WRAPPER -->

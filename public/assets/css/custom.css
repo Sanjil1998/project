@@ -120,4 +120,32 @@ body{margin-top:20px;}
   color: #3b98c8;
 }
 
+.center-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 /* blog css ends  */
+
+/* blog show css */
+
+.fw-bolder {
+  font-weight: bolder !important;
+}
+
+.fst-italic {
+  font-style: italic !important;
+}
+
+/* blog show css ends */
+
+/* Blog list css */
+
+.action-btn{
+  padding: 1px !important;
+  margin-right: 1% !important;
+  width: 20% !important;
+}
+
+/* Blog list css ends  */

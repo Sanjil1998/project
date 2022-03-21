@@ -126,6 +126,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         Route::get('/','BlogController@index')->name('admin.blogs.index');
 
+        Route::get('/blog-list', 'BlogController@blogList')->name('admin.blogs.blogList');
+
         Route::get('/create','BlogController@create')->name('admin.blogs.create');
 
         Route::post('/store','BlogController@store')->name('admin.blogs.store');
@@ -135,6 +137,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/{id}/edit', 'BlogController@edit')->name('admin.blogs.edit');
 
         Route::put('/{id}/update','BlogController@update')->name('admin.blogs.update');
+
+        Route::delete('/{id}/delete', 'BlogController@destroy')->name('admin.blogs.delete');
 
 
     });
