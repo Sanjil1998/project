@@ -85,9 +85,9 @@
                                                             <!-- /.entry-meta -->
                                                         </div>
                                                         <!-- /.article-header -->
-                                                        <div class="article-content text-justify">
+                                                        {{-- <div class="article-content text-justify">
                                                             <section>{!! substr($blogs->blog_body,0,100) !!} ...</section>
-                                                        </div>
+                                                        </div> --}}
                                                         <!--  /.article-content -->
                                                         <div class="article-footer">
                                                             <div class="row">

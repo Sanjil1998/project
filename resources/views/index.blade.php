@@ -248,6 +248,84 @@
         @endif
         <!-- End Gallery -->
 
+        <!-- Blog -->
+        @if($totalBlog>0)
+        <div id="blog">
+            <div class="container content-lg">
+                <div class="row">
+                    <div class="col-sm-3 sm-margin-b-30">
+                        <div class="text-right sm-text-left">
+                            <h2 class="margin-b-0">Blog</h2>
+                            <p>Some of my writings</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-sm-offset-1">
+                        <!-- blog row starts -->
+
+                        <div class="row">
+                            <div class="blog col-md-12">
+                                @foreach($blog as $blogs)
+                                    
+                                        <div class="col-md-6 col-xl-6">
+                                            <article class="post">
+                                                <div class="article-v2">
+                                                    <figure class="article-thumb">
+                                                        <a href="#">
+                                                            <img src="https://via.placeholder.com/350x280/FFB6C1/000000" alt="blog image" width="95%" class="border_radius"/>
+                                                        </a>
+                                                    </figure>
+                                                    <!-- /.article-thumb -->
+                                                    <div class="article-content-main border_radius">
+                                                        <div class="article-header">
+                                                            <h2 class="entry-title text-capitalize"><a href="{{route('blog.blogShow', $blogs->id)}}">{{$blogs->blog_title}}</a></h2>
+                                                            <div class="entry-meta">
+                                                                <div class="entry-date">{{$blogs->created_at->format('Y-m-d')}}</div>
+                                                                <!-- /.entry-date -->
+                                                                <div class="entry-cat text-capitalize">{{$blogs->user->name}}</div>
+                                                                <!--  /.entry-cat -->
+                                                            </div>
+                                                            <!-- /.entry-meta -->
+                                                        </div>
+                                                        <!-- /.article-header -->
+                                                        <div class="article-content text-justify">
+                                                            <section>{!! substr($blogs->blog_body,0,100) !!} ...</section>
+                                                        </div>
+                                                        <!--  /.article-content -->
+                                                        <div class="article-footer">
+                                                            <div class="row">
+                                                                <div class="col-6 text-left footer-link">
+                                                                    <a href="{{route('blog.blogShow', $blogs->id)}}" class="more-link">Read More</a>
+                                                                </div>
+                                                            </div>
+                                                            <!--  /.row -->
+                                                        </div>
+                                                        <!--  /.article-footer -->
+                                                    </div>
+                                                    <!--  /.article-content-main -->
+                                                </div>
+                                                <!--  /.article-v2 -->
+                                            </article>
+                                            <!--  /.post -->
+                                        </div>
+
+                                    @endforeach
+                                    <div class="clear"></div>
+                                    @if($totalBlog>4)
+                                    <a href="{{route('blog.index')}}" class="btn bg-color-orange text-white pull-right btn-view-more">View More</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- blog row ends -->
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+        @endif
+        <!-- End Blog -->
+
         <!-- Contact -->
         <div id="contact">
             <div class="bg-color-sky-light">

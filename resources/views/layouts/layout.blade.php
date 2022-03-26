@@ -78,6 +78,9 @@
                                 @if($totalgallery>0)
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
                                 @endif
+                                @if($totalBlog>0)
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#blog">Blog</a></li>
+                                @endif
                                 @endif
 
 
@@ -88,6 +91,8 @@
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#work">Work</a></li>
                                 
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
+
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#blog">Blogs</a></li>
 
                                 @endif
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#contact">Contact</a></li>

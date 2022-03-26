@@ -53,6 +53,10 @@ body{margin-top:20px;}
   padding: 0 15px;
 }
 
+.article-v2{
+  /* height: 10px !important; */
+}
+
 .post .article-v2 .entry-title {
   font-size: 18px;
   color: #666666;
@@ -124,8 +128,20 @@ body{margin-top:20px;}
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 90%;
+  margin-bottom: 5%;;
 }
+
+.sectionContent{
+  padding: 2%;
+}
+
+.article-content section{
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 12px !important;
+}
+
 /* blog css ends  */
 
 /* blog show css */

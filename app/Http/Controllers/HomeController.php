@@ -12,6 +12,7 @@ Use App\Work;
 Use App\Experience;
 Use App\Gallery;
 Use App\Banner;
+use App\Blog;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,12 @@ class HomeController extends Controller
     public function index()
     {
         $about = About::all();
-        $skill = Skills::all();
+        $skill = Skills::orderBy('skill_level', 'desc')->get();
         $profile = Profile::all();
         $user = User::all();
         $work = Work::orderBy('created_at', 'desc')->take(4)->get();
+        $blog = Blog::where('publish_status', 1)->orderBy('updated_at', 'desc')->take(4)->get();
+        $totalBlog = count(Blog::where('publish_status',1)->get());
         $totalwork = count(Work::all());
         $experience = Experience::orderBy('created_at', 'desc')->take(3)->get();
         $totalexperience = count(Experience::all());
@@ -42,11 +45,13 @@ class HomeController extends Controller
         $document = Document::where('file', 'CV-Sanjil-Shakya.pdf')->get();
         $banner = Banner::all();
         $totalbanner = count(Banner::all());
-        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork)->with('banner', $banner)->with('totalbanner', $totalbanner);
+        return view('index')->with('document', $document)->with('about', $about)->with('skill', $skill)->with('user', $user)->with('profile', $profile)->with('work', $work)->with('experience', $experience)->with('gallery', $gallery)->with('totalgallery', $totalgallery)->with('totalexperience', $totalexperience)->with('totalwork', $totalwork)->with('banner', $banner)->with('totalbanner', $totalbanner)->with('blog', $blog)->with('totalBlog', $totalBlog);
     }
     public function blogs()
     {
-        return view('blogs.index');
+        $blog = Blog::where('publish_status', 1)->orderBy('updated_at', 'desc')->take(4)->get();
+        $totalBlog = count(Blog::where('blog_status',0)->get());
+        return view('blogs.index')->with('blog', $blog)->with('totalBlog', $totalBlog);
     }
 
     public function experience(){
@@ -58,5 +63,6 @@ class HomeController extends Controller
         $work = Work::orderBy('created_at', 'desc')->get();
         return view('work.index')->with('work', $work);
     }
+
 
 }

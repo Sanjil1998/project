@@ -29,7 +29,7 @@
                             <!-- Preview image figure-->
                             <figure class="mb-10"><img class="img-fluid rounded center-img" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..."/></figure>
                             <!-- Post content-->
-                            <section class="mb-10">
+                            
                                 {!! $blog->blog_body !!}
                             </section>
                         </article>

@@ -36,6 +36,10 @@ Route::get('experience', 'HomeController@experience')->name('experience.index');
 
 Route::get('work', 'HomeController@work')->name('work.index');
 
+Route::get('blog', 'HomeController@blog')->name('blog.index');
+
+Route::get('blog/{id}', 'HomeController@blogView')->name('blog.blogShow');
+
 // Backend Routes
 
 Route::prefix('admin')->middleware('auth')->group(function () {
