@@ -12,29 +12,29 @@
 
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-    <link href="{{URL::to('/')}}/public/extra/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
-    <link href="{{URL::to('/')}}/public/extra/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/extra/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/extra/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- PAGE LEVEL PLUGIN STYLES -->
-    <link href="{{URL::to('/')}}/public/css/addon-css/animate.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/css/addon-css/animate.css" rel="stylesheet">
 
     <!-- THEME STYLES -->
-    <link href="{{URL::to('/')}}/public/css/addon-css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::to('/')}}/css/addon-css/layout.css" rel="stylesheet" type="text/css"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/public/css/addon-css/styles.css">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/public/assets/img/favicon.png">
-    <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/addon-css/styles.css">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{URL::to('/')}}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/custom.css">
 
 
     <!-- Simple Lightbox Styles -->
-    <link rel="stylesheet" href="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/assets/vendor/simplelightbox/simple-lightbox.css">
 
     <!-- Font-awesome -->
-    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/public/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/assets/vendor/font-awesome/css/font-awesome.min.css">
 </head>
 <!-- HEAD TAG ENDS -->
 
@@ -55,7 +55,7 @@
                     <!-- Logo -->
                         <div class="logo">
                             <a class="logo-wrap" href="{!! url('/'); !!}">
-                                <img src="{{URL::to('/')}}/public/assets/img/new-my-logo-transparent.png" alt="">
+                                <img src="{{URL::to('/')}}/assets/img/new-my-logo-transparent.png" alt="">
                                 <!-- <h3 class="text-color-custom">Sanjil Shakya</h3> -->
                             </a>
                         </div>
@@ -89,7 +89,7 @@
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#experience">Experience</a></li>
 
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#work">Work</a></li>
-                                
+
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#gallery">Gallery</a></li>
 
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{!! url('/'); !!}/#blog">Blogs</a></li>
@@ -120,7 +120,7 @@
                         @if(request()->segment(1) !== 'experience')
                         @if(request()->segment(1) !== 'work')
                         @foreach($document as $documents)
-                            <a href="{{URL::to('/')}}/public/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
+                            <a href="{{URL::to('/')}}/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
                         @endforeach
                         @endif
                         @endif
@@ -144,28 +144,28 @@
 
         <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
-        <script src="public/extra/vendor/jquery.min.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
         <!-- PAGE LEVEL PLUGINS -->
-        <script src="public/extra/vendor/jquery.easing.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery.back-to-top.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery.wow.min.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery.parallax.min.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/jquery.appear.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
-        <script src="public/extra/vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.parallax.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/jquery.appear.js" type="text/javascript"></script>
+        <script src="extra/vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="extra/vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
 
         <!-- PAGE LEVEL SCRIPTS -->
-        <script src="public/extra/js/layout.min.js" type="text/javascript"></script>
-        <script src="public/extra/js/components/progress-bar.min.js" type="text/javascript"></script>
-        <script src="public/extra/js/components/masonry.min.js" type="text/javascript"></script>
-        <script src="public/extra/js/components/wow.min.js" type="text/javascript"></script>
+        <script src="extra/js/layout.min.js" type="text/javascript"></script>
+        <script src="extra/js/components/progress-bar.min.js" type="text/javascript"></script>
+        <script src="extra/js/components/masonry.min.js" type="text/javascript"></script>
+        <script src="extra/js/components/wow.min.js" type="text/javascript"></script>
 
         <!-- Simple LightBox Scripts -->
-        <script src="{{URL::to('/')}}/public/assets/vendor/simplelightbox/simple-lightbox.js"></script>
+        <script src="{{URL::to('/')}}/assets/vendor/simplelightbox/simple-lightbox.js"></script>
 
         @yield('scripts')
 

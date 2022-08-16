@@ -31,9 +31,9 @@
                                 @foreach($banner as $banners)
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <h3>Current Banner</h3>
-                                    <a href="{{URL::to('/')}}/public/storage/bannerimages/thumbnail/large_{{$banners->banner_image}}" class="big">
+                                    <a href="{{URL::to('/')}}/storage/bannerimages/thumbnail/large_{{$banners->banner_image}}" class="big">
                                         <img class="full-width img-responsive img-fluid"
-                                        src="{{ URL::to('/')}}/public/storage/bannerimages/thumbnail/large_{{$banners->banner_image }}"
+                                        src="{{ URL::to('/')}}/storage/bannerimages/thumbnail/large_{{$banners->banner_image }}"
                                         alt=""
                                         style="width: 80%; height: 50%;"
                                         title="{{$banners->banner_image_title}}"/>

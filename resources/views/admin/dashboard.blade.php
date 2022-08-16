@@ -104,7 +104,7 @@
                                 <div class="panel-body">
                                     @foreach($gallery as $galleries)
                                     <div class="col-sm-12 col-xs-12 col-md-4 margin-b-5">
-                                        <img src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
+                                        <img src="{{ URL::to('/')}}/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
                                     </div>
                                     @endforeach
 
@@ -135,7 +135,7 @@
                             <!-- END TIMELINE -->
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-7">
                             <!-- BLOG LIST -->
                             <div class="panel">
@@ -149,7 +149,7 @@
                                 <div class="panel-body">
                                     @foreach($gallery as $galleries)
                                     <div class="col-sm-12 col-xs-12 col-md-4 margin-b-5">
-                                        <img src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
+                                        <img src="{{ URL::to('/')}}/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
                                     </div>
                                     @endforeach
 
@@ -157,7 +157,7 @@
                             </div>
                             <!-- END BLOG LIST -->
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- END MAIN CONTENT -->

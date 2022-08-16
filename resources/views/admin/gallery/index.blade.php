@@ -25,9 +25,9 @@
                                 <div class="gallery col-md-12">
                                     @foreach($gallery as $galleries)
                                     <div class="col-xs-12 col-sm-4 col-md-2">
-                                        <a href="{{URL::to('/')}}/public/storage/galleryimages/{{$galleries->image}}" class="big">
+                                        <a href="{{URL::to('/')}}/storage/galleryimages/{{$galleries->image}}" class="big">
                                             <img class="full-width img-responsive img-fluid"
-                                            src="{{ URL::to('/')}}/public/storage/galleryimages/thumbnail/medium_{{$galleries->image }}"
+                                            src="{{ URL::to('/')}}/storage/galleryimages/thumbnail/medium_{{$galleries->image }}"
                                             alt=""
                                             style="width: 300px; height: 185px;"
                                             title="{{$galleries->image_title}}"/>

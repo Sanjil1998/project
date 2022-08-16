@@ -9,7 +9,7 @@
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="brand">
-                <a href="{{ route('admin.dashboard') }}"><img src="{{URL::to('/')}}/public/assets/img/my-logo.png" alt="Admin Logo" class="img-responsive logo"></a>
+                <a href="{{ route('admin.dashboard') }}"><img src="{{URL::to('/')}}/assets/img/my-logo.png" alt="Admin Logo" class="img-responsive logo"></a>
             </div>
             <div class="container-fluid">
                 <div class="navbar-btn">
@@ -19,7 +19,7 @@
                 <div id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- <img src="{{URL::to('/')}}/public/assets/img/user.png" class="img-circle" alt="Avatar"> --> @auth <span class="text-capitalize">{{ Auth::user()->name}}</span> @endauth @guest<span>Samuel</span>@endguest <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><!-- <img src="{{URL::to('/')}}/assets/img/user.png" class="img-circle" alt="Avatar"> --> @auth <span class="text-capitalize">{{ Auth::user()->name}}</span> @endauth @guest<span>Samuel</span>@endguest <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.profile.index') }}"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                                <li><a href="{{ route('admin.blogs.index') }}"><i class="lnr lnr-pencil"></i> <span>Blogs</span></a></li>

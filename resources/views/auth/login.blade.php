@@ -9,7 +9,7 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <div class="logo text-center"><img src="{{URL::to('/')}}/public/assets/img/login-logo.png" alt="Klorofil Logo" style="height: 125px;" class="img-fluid"></div>
+                                <div class="logo text-center"><img src="{{URL::to('/')}}/assets/img/login-logo.png" alt="Klorofil Logo" style="height: 125px;" class="img-fluid"></div>
                                 <p class="lead">Login to your account</p>
                             </div>
                             <form class="form-auth-small" method="POST" action="{{ route('login') }}">
