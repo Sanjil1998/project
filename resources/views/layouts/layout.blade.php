@@ -120,14 +120,16 @@
                         @if(request()->segment(1) !== 'experience')
                         @if(request()->segment(1) !== 'work')
                         @foreach($document as $documents)
-                            <a href="{{URL::to('/')}}/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
+                            @if (count($document)>0)
+                                <a href="{{URL::to('/')}}/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
+                            @endif
                         @endforeach
                         @endif
                         @endif
                         @endif
                     </div>
                     <div class="col-xs-6 text-right sm-text-left">
-                        <p class="margin-b-0"><a class="fweight-700 pointer" onclick="window.location.reload();">Curriculum Viti (<?php echo date('Y') ?>)</a> Developed By: <a class="fweight-700 pointer" onclick="window.location.reload();">Sanjil Shakya</a></p>
+                        <p class="margin-b-0"><a class="fweight-700 pointer" onclick="window.location.reload();">Curriculum Viti (<?php echo date('Y') ?>)</a> By: <a class="fweight-700 pointer" onclick="window.location.reload();">Sanjil Shakya</a></p>
                     </div>
                 </div>
                 <!--// end row -->
