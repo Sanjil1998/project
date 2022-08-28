@@ -45,6 +45,9 @@
             "database/seeds",
             "database/factories",
             "database/migrations"
+        ],
+        "files": [
+            "app/Helper/helper.php"
         ]
     },
     "autoload-dev": {

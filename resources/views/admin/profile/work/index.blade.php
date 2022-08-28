@@ -49,7 +49,7 @@
                                         <td>{{$works->work_title}}</td>
                                         <td>{{$works->work_subtitle}}</td>
                                         <td><p>{!!$works->work_description!!}</p></td>
-                                        <td><img src="{{URL::to('/')}}/storage/app/work_images/{{$works->work_image}}" alt="Alt-img" class="img-fluid img-thumbnail" width="200" height="100"></td>
+                                        <td><img src="{{getImage($works->work_image)}}" alt="Alt-img" class="img-fluid img-thumbnail" width="200" height="100"></td>
                                         <td>{{$works->work_links}}</td>
                                         <td class="text-red">{{$works->work_leader}}</td>
                                         <td class="text-blue">{{$works->work_provider}}</td>

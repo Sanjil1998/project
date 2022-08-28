@@ -6,7 +6,7 @@
         <!--========== SLIDER ==========-->
         @if($totalbanner>0)
         @foreach($banner as $banners)
-        <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{URL::to('/')}}/storage/bannerimages/thumbnail/large_{{$banners->banner_image}}">
+        <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{getImage($banners->banner_image) }}">
         @endforeach
         @else
         <div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{URL::to('/')}}/extra/img/1920x1080/03.jpg">
@@ -161,7 +161,7 @@
                                 <!-- Work -->
                                 <div class="work work-popup-trigger">
                                     <div class="work-overlay">
-                                        <img class="full-width img-responsive img-thumbnail" src="{{URL::to('/')}}/storage/work_images/{{$works->work_image}}" alt="Portfolio Image" style="width: 400px; height: 280px; margin: 0px auto">
+                                        <img class="full-width img-responsive img-thumbnail" src="{{getImage($works->work_image)}}" alt="Portfolio Image" style="width: 400px; height: 280px; margin: 0px auto">
                                     </div>
                                     <div class="work-popup-overlay">
                                         <div class="work-popup-content">
@@ -226,8 +226,8 @@
                             <div class="gallery col-md-12">
                                 @foreach($gallery as $galleries)
                                 <div class="col-xs-12 col-sm-6 col-md-6 margin-b-5">
-                                    <a href="{{URL::to('/')}}/storage/galleryimages/{{$galleries->image}}" class="big">
-                                        <img class="full-width img-responsive img-fluid img-thumbnail object-fit-img" src="{{ URL::to('/')}}/storage/galleryimages/{{$galleries->image }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}"/>
+                                    <a href="{{getImage($galleries->image) }}" class="big">
+                                        <img class="full-width img-responsive img-fluid img-thumbnail object-fit-img" src="{{getImage($galleries->image, 'large') }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}"/>
                                     </a>
                                 </div>
                                 @endforeach

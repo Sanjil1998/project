@@ -107,7 +107,7 @@
                                 <tbody>
                                     <tr>
                                         <td>{{$documents->id}}</td>
-                                        <td><a href="{{URL::to('/')}}/files/{{$documents->file}}">{{$documents->file}}</a></td>
+                                        <td><a href="{{URL::to('/')}}/upload/files/{{$documents->file}}">{{$documents->file}}</a></td>
                                         <td>{{$documents->created_at}}</td>
                                         <td colspan="2">
                                             {!! Form::open(['action' => ['FileController@destroy', $documents->id], 'method'=>'POST', 'class' => 'pl-0 pr-0' ]) !!}

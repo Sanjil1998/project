@@ -10,9 +10,12 @@ use App\Skills;
 use App\Profile;
 use App\Work;
 use App\Experience;
+use App\Traits\UploadFiles;
 
 class ProfileController extends Controller
 {
+    use UploadFiles;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -48,24 +51,25 @@ class ProfileController extends Controller
         ]);
 
         if ($request->hasFile('image')){
-            //Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $profileImageLocation = $this->uploadProfileImage($request->file('image'), 'images');
+            // //Get filename with the extension
+            // $filenameWithExt = $request->file('image')->getClientOriginalName();
 
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // //Get just filename
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            //Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
+            // //Get just ext
+            // $extension = $request->file('image')->getClientOriginalExtension();
 
-            //Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // //Filename to store
+            // $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
-            //Upload Image
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+            // //Upload Image
+            // $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
 
         }
         else{
-            $fileNameToStore = 'noimage.jpg';
+            $profileImageLocation = 'noimage.jpg';
         }
 
         $profile = new Profile;
@@ -78,7 +82,7 @@ class ProfileController extends Controller
         $profile->instagram = $request->input('instagram');
         $profile->twitter = $request->input('twitter');
         $profile->linkedin = $request->input('linkedin');
-        $profile->image = $fileNameToStore;
+        $profile->image = $profileImageLocation;
         $profile->save();
 
         return redirect(route('admin.profile.index'));
@@ -105,24 +109,12 @@ class ProfileController extends Controller
             'image' => 'image',
         ]);
         if ($request->hasFile('image')){
-            //Get filename with the extension
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
 
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            //Get just ext
-            $extension = $request->file('image')->getClientOriginalExtension();
-
-            //Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //Upload Image
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+            $profileImageLocation = $this->uploadProfileImage($request->file('image'), 'images');
 
         }
         else{
-            $fileNameToStore = 'noimage.jpg';
+            $profileImageLocation = 'noimage.jpg';
         }
 
         $profile = Profile::find($id);;
@@ -135,7 +127,7 @@ class ProfileController extends Controller
         $profile->instagram = $request->input('instagram');
         $profile->twitter = $request->input('twitter');
         $profile->linkedin = $request->input('linkedin');
-        $profile->image = $fileNameToStore;
+        $profile->image =  $profileImageLocation;
         $profile->save();
 
         return redirect(route('admin.profile.index'));
@@ -276,20 +268,22 @@ class ProfileController extends Controller
         ]);
 
         if ($request->hasFile('work_image')){
-            //Get filename with the extension
-            $filenameWithExt = $request->file('work_image')->getClientOriginalName();
 
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $workImageLocation = $this->uploadProfileImage($request->file('work_image'), 'work_images');
+            // //Get filename with the extension
+            // $filenameWithExt = $request->file('work_image')->getClientOriginalName();
 
-            //Get just ext
-            $extension = $request->file('work_image')->getClientOriginalExtension();
+            // //Get just filename
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            //Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // //Get just ext
+            // $extension = $request->file('work_image')->getClientOriginalExtension();
 
-            //Upload Image
-            $path = $request->file('work_image')->storeAs('public/work_images', $fileNameToStore);
+            // //Filename to store
+            // $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            // //Upload Image
+            // $path = $request->file('work_image')->storeAs('public/work_images', $fileNameToStore);
 
         }
         else{
@@ -300,7 +294,7 @@ class ProfileController extends Controller
         $work->work_title=$request->input('work_title');
         $work->work_subtitle=$request->input('work_subtitle');
         $work->work_description=$request->input('work_description');
-        $work->work_image=$fileNameToStore;
+        $work->work_image=$workImageLocation;
         $work->work_links=$request->input('work_links');
         $work->work_leader=$request->input('work_leader');
         $work->work_provider=$request->input('work_provider');
@@ -334,20 +328,22 @@ class ProfileController extends Controller
         ]);
 
         if ($request->hasFile('work_image')){
-            //Get filename with the extension
-            $filenameWithExt = $request->file('work_image')->getClientOriginalName();
 
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $workImageLocation = $this->uploadProfileImage($request->file('work_image'), 'work_images');
+            // //Get filename with the extension
+            // $filenameWithExt = $request->file('work_image')->getClientOriginalName();
 
-            //Get just ext
-            $extension = $request->file('work_image')->getClientOriginalExtension();
+            // //Get just filename
+            // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            //Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // //Get just ext
+            // $extension = $request->file('work_image')->getClientOriginalExtension();
 
-            //Upload Image
-            $path = $request->file('work_image')->storeAs('public/work_images', $fileNameToStore);
+            // //Filename to store
+            // $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            // //Upload Image
+            // $path = $request->file('work_image')->storeAs('public/work_images', $fileNameToStore);
 
         }
         else{
@@ -358,7 +354,7 @@ class ProfileController extends Controller
         $work->work_title=$request->input('work_title');
         $work->work_subtitle=$request->input('work_subtitle');
         $work->work_description=$request->input('work_description');
-        $work->work_image=$fileNameToStore;
+        $work->work_image=$workImageLocation;
         $work->work_links=$request->input('work_links');
         $work->work_leader=$request->input('work_leader');
         $work->work_provider=$request->input('work_provider');

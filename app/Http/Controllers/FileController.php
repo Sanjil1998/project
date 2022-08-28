@@ -7,9 +7,11 @@ use Validator,Redirect,Response,File;
 Use App\User;
 Use App\Document;
 Use Storage;
+use App\Traits\UploadFiles;
 
 class FileController extends Controller
 {
+    use UploadFiles;
 
     public function __construct()
     {
@@ -19,18 +21,18 @@ class FileController extends Controller
 
     public function save(Request $request)
     {
-       request()->validate([
+        request()->validate([
          'file' => 'required',
          'file.*' => 'mimes:doc,pdf,docx,txt,zip,png'
        ]);
 
-        if($request->hasfile('file'))
+        if($request->hasFile('file'))
          {
+
             foreach ($request->file('file') as $file) {
                 $filename=$file->getClientOriginalName();
-                $file->move(public_path().'/files/', $filename);
-
-
+                $file->move(public_path('upload/').'/files/', $filename);
+                // \dd($fileLocation);
 
             }
         }
@@ -39,7 +41,7 @@ class FileController extends Controller
         $check->file=$filename;
         $check->save();
 
-        return back()->with('success', 'Great! files has been successfully uploaded.');
+        return back()->with('success', 'Great! your file has been successfully uploaded.');
 
     }
 
@@ -63,4 +65,25 @@ class FileController extends Controller
         return back()->with('success', 'File has been deleted.');
 
     }
+
+    // public function uploadDocument(UploadedFile $file, $location){
+
+    //     $filename=$file->getClientOriginalName();
+
+    //     $file->move(public_path('upload/'.$location.'/'.$filename));
+
+    //     return $location.'/'.$filename;
+
+
+    // }
+
+    // public function deleteFile($location){
+    //     if(File::exists('upload/'.$location)){
+    //         File::delete('upload/'.$location);
+    //     }
+    //     if(File::exists('upload/files'.$location)){
+    //         File::delete('upload/files'.$location);
+    //     }
+
+    // }
 }

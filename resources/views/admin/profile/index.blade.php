@@ -21,7 +21,7 @@
                                         <div class="overlay"></div>
                                         <div class="profile-main">
                                             @foreach($profile as $profiles)
-                                            <img src="{{URL::to('/')}}/storage/images/{{$profiles->image}}" class="img-circle" alt="Avatar" width="150" height="150">
+                                            <img src="{{getImage($profiles->image) }}" class="img-circle" alt="Avatar" width="150" height="150">
                                             @endforeach
                                             <h3 class="name text-capitalize">{{Auth::user()->name}}</h3>
                                         </div>

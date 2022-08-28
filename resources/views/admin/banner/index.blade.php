@@ -31,16 +31,16 @@
                                 @foreach($banner as $banners)
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <h3>Current Banner</h3>
-                                    <a href="{{URL::to('/')}}/storage/bannerimages/thumbnail/large_{{$banners->banner_image}}" class="big">
+                                    <a href="{{getImage($banners->banner_image, 'large') }}" class="big">
                                         <img class="full-width img-responsive img-fluid"
-                                        src="{{ URL::to('/')}}/storage/bannerimages/thumbnail/large_{{$banners->banner_image }}"
+                                        src="{{getImage($banners->banner_image, 'large') }}"
                                         alt=""
                                         style="width: 80%; height: 50%;"
                                         title="{{$banners->banner_image_title}}"/>
                                     </a>
                                     {!! Form::open(['action' => ['GalleryController@banner_delete', $banners->id], 'method'=>'POST', 'class' => 'pl-0 pr-0' ]) !!}
                                     {{Form::hidden('_method', 'DELETE')}}
-                                    {{Form::submit('Delete', ['class' => 'btn btn-danger pull-right',  , 'onclick' => 'return confirm("Confirm to delete.");'])}}
+                                    {{Form::submit('Delete', ['class' => 'btn btn-danger pull-right', 'onclick' => 'return confirm("Confirm to delete.");'])}}
                                     {!! Form::close() !!}
                                 </div>
                                 @endforeach

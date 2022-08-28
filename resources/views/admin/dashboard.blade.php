@@ -104,7 +104,7 @@
                                 <div class="panel-body">
                                     @foreach($gallery as $galleries)
                                     <div class="col-sm-12 col-xs-12 col-md-4 margin-b-5">
-                                        <img src="{{ URL::to('/')}}/storage/galleryimages/thumbnail/large_{{$galleries->image }}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
+                                        <img src="{{getImage($galleries->image, 'large')}}" alt="" title="{{$galleries->image_title}}" style="width: 160px; height: 150px;" class="object-fit-img">
                                     </div>
                                     @endforeach
 

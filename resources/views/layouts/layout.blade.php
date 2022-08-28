@@ -121,7 +121,7 @@
                         @if(request()->segment(1) !== 'work')
                         @foreach($document as $documents)
                             @if (count($document)>0)
-                                <a href="{{URL::to('/')}}/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more">Download CV</a>
+                                <a href="{{URL::to('/')}}/upload/files/{{$documents->file}}"  class="btn bg-color-orange text-white btn-view-more" target="_blank">Download CV</a>
                             @endif
                         @endforeach
                         @endif
