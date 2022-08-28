@@ -135,7 +135,7 @@ class GalleryController extends Controller
         ]);
 
         if($request->hasFile('banner_image')){
-            $BannerImageLocation = $this->uploadImage($request->file('banner_image'), 'bannerimages');
+            $BannerImageLocation = $this->uploadBanner($request->file('banner_image'), 'bannerimages');
             // \dd($BannerImageLocation);
             // //get filename with extension
             // $filenamewithextension = $request->file('banner_image')->getClientOriginalName();

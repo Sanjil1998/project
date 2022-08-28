@@ -31,9 +31,9 @@
                                 @foreach($banner as $banners)
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <h3>Current Banner</h3>
-                                    <a href="{{getImage($banners->banner_image, 'large') }}" class="big">
+                                    <a href="{{getImage($banners->banner_image) }}" class="big">
                                         <img class="full-width img-responsive img-fluid"
-                                        src="{{getImage($banners->banner_image, 'large') }}"
+                                        src="{{getImage($banners->banner_image) }}"
                                         alt=""
                                         style="width: 80%; height: 50%;"
                                         title="{{$banners->banner_image_title}}"/>
