@@ -25,7 +25,7 @@
                                 <div class="gallery col-md-12">
                                     @foreach($gallery as $galleries)
                                     <div class="col-xs-12 col-sm-4 col-md-2">
-                                        <a href="{{getImage($galleries->image)}}" class="big">
+                                        <a href="{{getImage($galleries->image, 'normal')}}" class="big">
                                             <img class="full-width img-responsive img-fluid"
                                             src="{{getImage($galleries->image, 'medium')}}"
                                             alt=""

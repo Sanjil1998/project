@@ -226,7 +226,7 @@
                             <div class="gallery col-md-12">
                                 @foreach($gallery as $galleries)
                                 <div class="col-xs-12 col-sm-6 col-md-6 margin-b-5">
-                                    <a href="{{getImage($galleries->image) }}" class="big">
+                                    <a href="{{getImage($galleries->image, 'normal') }}" class="big">
                                         <img class="full-width img-responsive img-fluid img-thumbnail object-fit-img" src="{{getImage($galleries->image, 'large') }}" alt="" style="height: 300px;" title="{{$galleries->image_title}}"/>
                                     </a>
                                 </div>

@@ -49,6 +49,15 @@ trait UploadFiles {
         // $file->storeAs('public/galleryimages/thumbnail', $largethumbnail);
 
         // create small thumbnail
+
+        if (!file_exists('upload/normal/'.$location)) {
+            File::makeDirectory('upload/normal/'.$location, 0777, true, true);
+        }
+
+        $normalImagePath = public_path('upload/normal/'.$location.'/'.$filenametostore);
+        Image::make($file)->save($normalImagePath);
+
+
         if (!file_exists('upload/small/'.$location)) {
             File::makeDirectory('upload/small/'.$location, 0777, true, true);
         }
